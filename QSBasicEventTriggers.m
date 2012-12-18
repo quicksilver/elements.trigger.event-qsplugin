@@ -12,7 +12,6 @@
 -(id)init{
 	if (self=[super init]){
 		NSNotificationCenter *wc=[[NSWorkspace sharedWorkspace]notificationCenter];
-		NSNotificationCenter *nc=[NSNotificationCenter defaultCenter];
 		NSDistributedNotificationCenter *dc=[NSDistributedNotificationCenter defaultCenter];
 		
 		
