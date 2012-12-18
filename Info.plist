@@ -89,6 +89,17 @@
 				<key>type</key>
 				<string>Application</string>
 			</dict>
+			<key>QSNetworkConfigurationChanged</key>
+			<dict>
+				<key>icon</key>
+				<string>GenericNetworkIcon</string>
+				<key>name</key>
+				<string>Network Changed</string>
+				<key>provider</key>
+				<string>QSProcessMonitor</string>
+				<key>type</key>
+				<string>Computer</string>
+			</dict>
 			<key>QSQuicksilverLaunchedAtLoginEvent</key>
 			<dict>
 				<key>icon</key>

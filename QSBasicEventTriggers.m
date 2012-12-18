@@ -30,6 +30,7 @@
 		[dc addObserver:self selector:@selector(handleScreenSaverNotification:) name:@"com.apple.screensaver.didstart" object:nil];
 		//		[dc addObserver:self selector:@selector(handleScreenSaverNotification:) name:@"com.apple.screensaver.willstop" object:nil];
 		[dc addObserver:self selector:@selector(handleScreenSaverNotification:) name:@"com.apple.screensaver.didstop" object:nil];
+        [dc addObserver:self selector:@selector(handleSystemNotification:) name:@"com.apple.internetconfignotification" object:nil];
 		
 	}
 	return self;
@@ -87,5 +88,16 @@
 
 	[[QSEventTriggerManager sharedInstance]handleTriggerEvent:name withObject:drive];
 
+}
+
+- (void)handleSystemNotification:(NSNotification *)notif
+{
+    NSString *name = [notif name];
+    if ([name isEqualToString:@"com.apple.internetconfignotification"]) {
+        name = @"QSNetworkConfigurationChanged";
+    } else {
+        return;
+    }
+	[[QSEventTriggerManager sharedInstance] handleTriggerEvent:name withObject:nil];
 }
 @end
