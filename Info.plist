@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.1.0</string>
 	<key>CFBundleVersion</key>
-	<string>70</string>
+	<string>71</string>
 	<key>NSPrincipalClass</key>
 	<string>QSEventTriggersPlugIn</string>
 	<key>QSPlugIn</key>
@@ -28,16 +28,13 @@
 		<string>Blacktree, Inc</string>
 		<key>categories</key>
 		<array>
+			<string>Quicksilver</string>
+			<string>System</string>
 		</array>
 		<key>description</key>
 		<string>Trigger based on system events</string>
 		<key>icon</key>
-		<string>Event</string>
-		<key>relatedBundles </key>
-		<array>
-		</array>
-		<key>secret</key>
-		<true/>
+		<string>General</string>
 	</dict>
 	<key>QSRegistration</key>
 	<dict>

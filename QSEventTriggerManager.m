@@ -12,7 +12,7 @@
 	return @"Event";
 }
 -(NSImage *)image{
-	NSImage *image=[[[QSResourceManager imageNamed:@"GenericApplicationIcon"]copy]autorelease];
+	NSImage *image=[[[QSResourceManager imageNamed:@"General"]copy]autorelease];
 	[image setSize:NSMakeSize(16,16)];
 	return image;
 }
