@@ -25,6 +25,7 @@
 		[wc addObserver:self selector:@selector(handleWorkspaceMountNotification:) name:NSWorkspaceDidMountNotification object:nil];
 		[wc addObserver:self selector:@selector(handleWorkspaceMountNotification:) name:NSWorkspaceDidUnmountNotification object:nil];
 		[wc addObserver:self selector:@selector(handleWorkspaceMountNotification:) name:NSWorkspaceWillUnmountNotification object:nil];
+        [wc addObserver:self selector:@selector(handleWorkspaceNotification:) name:NSWorkspaceActiveSpaceDidChangeNotification object:nil];
 		
 		//[dc addObserver:self selector:@selector(handleScreenSaverNotification:) name:@"com.apple.screensaver.action" object:nil];
 		[dc addObserver:self selector:@selector(handleScreenSaverNotification:) name:@"com.apple.screensaver.didstart" object:nil];
@@ -61,6 +62,8 @@
 		name=@"QSWorkspaceSessionDidResignActiveEvent";
 	}else if ([name isEqualToString:NSWorkspaceSessionDidBecomeActiveNotification]){
 		name=@"QSWorkspaceSessionDidBecomeActiveEvent";
+	}else if ([name isEqualToString:NSWorkspaceActiveSpaceDidChangeNotification]){
+		name=@"QSActiveSpaceChangedEvent";
 	} else{
 		return;
 	}
