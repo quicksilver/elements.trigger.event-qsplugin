@@ -49,10 +49,12 @@
  
 	
 }
-//- (void)triggerObjects{
-//	return [NSMutableArray array];	
-//	
-//}
+
+- (NSMutableArray *)triggerObjects
+{
+    return [NSMutableArray array];
+}
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
 	[self populateInfoFields];
 }
