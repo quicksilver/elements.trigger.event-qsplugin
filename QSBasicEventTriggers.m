@@ -3,13 +3,10 @@
 //  QSEventTriggersPlugIn
 //
 //  Created by Nicholas Jitkoff on 1/22/05.
-//  Copyright 2005 __MyCompanyName__. All rights reserved.
 //
 
 #import "QSBasicEventTriggers.h"
 
-#import <QSCore/QSObject.h>
-#import <QSCore/QSObject_FileHandling.h>
 #import "QSEventTriggerManager.h"
 @implementation QSBasicEventTriggers
 -(id)init{
@@ -39,7 +36,7 @@
 }
 
 -(void)handleScreenSaverNotification:(NSNotification *)notif{
-	if (VERBOSE)NSLog(@"screensavernotif:%@",notif);
+	//if (VERBOSE)NSLog(@"screensavernotif:%@",notif);
 	NSString *name=[notif name];
 	if ([name isEqualToString:@"com.apple.screensaver.didstart"]){
 		name=@"QSScreensaverStartedEvent";

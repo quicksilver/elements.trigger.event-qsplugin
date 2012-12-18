@@ -3,12 +3,9 @@
 //  Quicksilver
 //
 //  Created by Nicholas Jitkoff on Sun Jun 13 2004.
-//  Copyright (c) 2004 __MyCompanyName__. All rights reserved.
 //
 
 #import "QSEventTriggerManager.h"
-#import <QSCore/QSResourceManager.h>
-#import <QSInterface/QSObjectCell.h>
 #define QSTriggerCenter NSClassFromString(@"QSTriggerCenter")
 @implementation QSEventTriggerManager
 -(NSString *)name{
@@ -52,10 +49,10 @@
  
 	
 }
-- (void)triggerObjects{
-	return [NSMutableArray array];	
-	
-}
+//- (void)triggerObjects{
+//	return [NSMutableArray array];	
+//	
+//}
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
 	[self populateInfoFields];
 }
@@ -117,7 +114,7 @@
 
 
 -(void)handleTriggerEvent:(NSString *)event withObject:(id)object{
-	if (VERBOSE)	NSLog(@"Event:%@\r%@",event, object);	
+	//if (VERBOSE)	NSLog(@"Event:%@\r%@",event, object);
 	NSEnumerator *e=[[self triggerArrayForEvent:event]objectEnumerator];
 	QSTrigger *trigger;
 	[self setEventTriggerObject:object];

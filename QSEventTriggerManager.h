@@ -3,10 +3,8 @@
 //  Quicksilver
 //
 //  Created by Nicholas Jitkoff on Sun Jun 13 2004.
-//  Copyright (c) 2004 __MyCompanyName__. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <QSCore/QSTriggerManager.h>
 
 #define kQSTriggerEvents @"QSTriggerEvents"

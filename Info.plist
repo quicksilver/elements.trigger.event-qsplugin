@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
+	<key>CFBundleDisplayName</key>
+	<string>Event Triggers</string>
 	<key>CFBundleExecutable</key>
 	<string>Event Triggers</string>
 	<key>CFBundleIdentifier</key>
@@ -14,40 +16,26 @@
 	<string>Event Triggers</string>
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.1.0</string>
 	<key>CFBundleVersion</key>
-	<string>6D</string>
+	<string>70</string>
 	<key>NSPrincipalClass</key>
 	<string>QSEventTriggersPlugIn</string>
-	<key>QSActionsTemplate</key>
-	<dict>
-		<key>QSEventTriggersPlugInAction</key>
-		<dict>
-			<key>actionClass</key>
-			<string>QSEventTriggersPlugIn_Action</string>
-			<key>actionSelector</key>
-			<string>performActionOnObject:</string>
-			<key>directTypes</key>
-			<array>
-				<string>QSEventTriggersPlugIn_Type</string>
-			</array>
-			<key>name</key>
-			<string>Action: QSEventTriggersPlugIn</string>
-			<key>validatesObjects</key>
-			<false/>
-		</dict>
-	</dict>
 	<key>QSPlugIn</key>
 	<dict>
 		<key>author</key>
 		<string>Blacktree, Inc</string>
 		<key>categories</key>
-		<array/>
+		<array>
+		</array>
 		<key>description</key>
 		<string>Trigger based on system events</string>
 		<key>icon</key>
 		<string>Event</string>
 		<key>relatedBundles </key>
-		<array/>
+		<array>
+		</array>
 		<key>secret</key>
 		<true/>
 	</dict>
@@ -242,41 +230,6 @@
 			<key>QSEventTrigger</key>
 			<string>QSEventTriggerManager</string>
 		</dict>
-	</dict>
-	<key>QSRequirementsTemplate</key>
-	<dict>
-		<key>bundlesTemplate</key>
-		<array>
-			<dict>
-				<key>id</key>
-				<string></string>
-				<key>name</key>
-				<string></string>
-				<key>version</key>
-				<string></string>
-			</dict>
-		</array>
-		<key>feature</key>
-		<integer>0</integer>
-		<key>launchLoad</key>
-		<false/>
-		<key>pathsTemplate</key>
-		<array>
-			<string>/path/to/something</string>
-		</array>
-		<key>pluginsTemplate</key>
-		<array>
-			<dict>
-				<key>id</key>
-				<string></string>
-				<key>name</key>
-				<string></string>
-				<key>version</key>
-				<string></string>
-			</dict>
-		</array>
-		<key>version</key>
-		<string>1337</string>
 	</dict>
 </dict>
 </plist>
