@@ -119,26 +119,15 @@
 	//if (VERBOSE)	NSLog(@"Event:%@\r%@",event, object);
 	[self setEventTriggerObject:object];
 	for (QSTrigger *trigger in [self triggerArrayForEvent:event]){
-		
 		float delay=[[trigger objectForKey:@"eventDelay"]floatValue];
 		BOOL oneTime=[[trigger objectForKey:@"eventOneTime"]boolValue];
-		BOOL idle=[[trigger objectForKey:@"eventWaitTillIdle"]boolValue];
 		
-		//	if (oneTime)
-		//		[trigger setOneTime:YES];
-		
-		if (delay){
-			if (idle){
-				[trigger performSelector:@selector(execute) withObject:nil afterDelay:delay extend:NO];
-			}else{
-				[trigger performSelector:@selector(execute) withObject:nil afterIdleFor:delay repeat:NO];
-			}
-			
-		}else{
-			[trigger execute];	
+		if (delay) {
+            [trigger performSelector:@selector(execute) withObject:nil afterDelay:delay extend:oneTime];
+		} else {
+			[trigger execute];
 		}
 	}
-	
 }
 
 - (NSString *)descriptionForTrigger:(NSDictionary *)dict{
