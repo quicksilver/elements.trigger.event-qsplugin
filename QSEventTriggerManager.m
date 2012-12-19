@@ -83,12 +83,12 @@
 		if ([provider respondsToSelector:@selector(enableEventObserving:)])
 			[provider enableEventObserving:event];
 	}
-	[triggerArray addObject:entry];
-	
-	if ([provider respondsToSelector:@selector(addObserverForEvent:trigger:)])
-		[provider addObserverForEvent:event trigger:[entry dictionaryRepresentation]];
-	
-	
+    if (![triggerArray containsObject:entry]) {
+        [triggerArray addObject:entry];
+        if ([provider respondsToSelector:@selector(addObserverForEvent:trigger:)]) {
+            [provider addObserverForEvent:event trigger:[entry dictionaryRepresentation]];
+        }
+    }
     return YES;
 }
 
