@@ -117,10 +117,8 @@
 
 -(void)handleTriggerEvent:(NSString *)event withObject:(id)object{
 	//if (VERBOSE)	NSLog(@"Event:%@\r%@",event, object);
-	NSEnumerator *e=[[self triggerArrayForEvent:event]objectEnumerator];
-	QSTrigger *trigger;
 	[self setEventTriggerObject:object];
-	while (trigger=[e nextObject]){
+	for (QSTrigger *trigger in [self triggerArrayForEvent:event]){
 		
 		float delay=[[trigger objectForKey:@"eventDelay"]floatValue];
 		BOOL oneTime=[[trigger objectForKey:@"eventOneTime"]boolValue];
@@ -178,14 +176,11 @@
 	
 	NSSortDescriptor *typeDesc=[NSSortDescriptor descriptorWithKey:@"type" ascending:YES];
 	NSSortDescriptor *nameDesc=[NSSortDescriptor descriptorWithKey:@"name" ascending:YES];
-	NSEnumerator *ke=[[events keysSortedByValueUsingDescriptors:[NSArray arrayWithObjects:typeDesc,nameDesc,nil]]objectEnumerator];
 	
-	
-	NSString *key;
 	NSDictionary *event;
 	NSString *type=nil;
 	NSMenuItem *item=nil;
-	while(key=[ke nextObject]){ 
+	for (NSString *key in [events keysSortedByValueUsingDescriptors:[NSArray arrayWithObjects:typeDesc,nameDesc,nil]]) {
 		event=[events objectForKey:key];
 		NSString *newType=[event objectForKey:@"type"];
 		if (![type isEqualToString:newType]){
