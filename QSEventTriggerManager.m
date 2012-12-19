@@ -72,7 +72,7 @@
 	return array;
 }
 
--(BOOL)enableTrigger:(NSDictionary *)entry{
+-(BOOL)enableTrigger:(QSTrigger *)entry{
 	NSString *event=[entry objectForKey:kEventTrigger];
 	NSDictionary *eventInfo=[[QSReg tableNamed:kQSTriggerEvents]objectForKey:event];
 	NSString *providerClass=[eventInfo objectForKey:@"provider"];
@@ -86,7 +86,7 @@
 	[triggerArray addObject:entry];
 	
 	if ([provider respondsToSelector:@selector(addObserverForEvent:trigger:)])
-		[provider addObserverForEvent:event trigger:entry];
+		[provider addObserverForEvent:event trigger:[entry dictionaryRepresentation]];
 	
 	
     return YES;
@@ -94,7 +94,7 @@
 
 
 
--(BOOL)disableTrigger:(NSDictionary *)entry{
+-(BOOL)disableTrigger:(QSTrigger *)entry{
 	NSString *event=[entry objectForKey:kEventTrigger];
 	NSDictionary *eventInfo=[[QSReg tableNamed:kQSTriggerEvents]objectForKey:event];
 	NSString *providerClass=[eventInfo objectForKey:@"provider"];
@@ -103,7 +103,7 @@
 	NSMutableArray *triggerArray=[self triggerArrayForEvent:event];
 	
 	if ([provider respondsToSelector:@selector(removeObserverForEvent:trigger:)])
-		[provider removeObserverForEvent:event trigger:entry];
+		[provider removeObserverForEvent:event trigger:[entry dictionaryRepresentation]];
 	
 	[triggerArray removeObject:entry];
 	
@@ -169,7 +169,7 @@
 }
 
 - (void)populateInfoFields{
-	NSDictionary *thisTrigger=[self currentTrigger];
+	//QSTrigger *thisTrigger=[self currentTrigger];
 	//	NSLog(@"populate for %@",thisTrigger);
 	[eventPopUp removeAllItems];
 	
