@@ -86,7 +86,7 @@
     if (![triggerArray containsObject:entry]) {
         [triggerArray addObject:entry];
         if ([provider respondsToSelector:@selector(addObserverForEvent:trigger:)]) {
-            [provider addObserverForEvent:event trigger:[entry dictionaryRepresentation]];
+            [provider addObserverForEvent:event trigger:entry];
         }
     }
     return YES;
@@ -103,7 +103,7 @@
 	NSMutableArray *triggerArray=[self triggerArrayForEvent:event];
 	
 	if ([provider respondsToSelector:@selector(removeObserverForEvent:trigger:)])
-		[provider removeObserverForEvent:event trigger:[entry dictionaryRepresentation]];
+		[provider removeObserverForEvent:event trigger:entry];
 	
 	[triggerArray removeObject:entry];
 	

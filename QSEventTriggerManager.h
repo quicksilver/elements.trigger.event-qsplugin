@@ -22,8 +22,8 @@
 - (void)disableEventObserving:(NSString *)event;
 
 // Called when any matching triggers are enabled/disabled
-- (void)addObserverForEvent:(NSString *)event trigger:(NSDictionary *)trigger;
-- (void)removeObserverForEvent:(NSString *)event trigger:(NSDictionary *)trigger;
+- (void)addObserverForEvent:(NSString *)event trigger:(QSTrigger *)trigger;
+- (void)removeObserverForEvent:(NSString *)event trigger:(QSTrigger *)trigger;
 
 
 @end
