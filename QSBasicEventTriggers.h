@@ -6,7 +6,8 @@
 //
 
 @interface QSBasicEventTriggers : NSObject {
-
+    NSDictionary *wsmap;
+    NSDictionary *distmap;
 }
 
 @end

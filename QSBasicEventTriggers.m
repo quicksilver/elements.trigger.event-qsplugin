@@ -11,93 +11,91 @@
 @implementation QSBasicEventTriggers
 -(id)init{
 	if (self=[super init]){
-		NSNotificationCenter *wc=[[NSWorkspace sharedWorkspace]notificationCenter];
-		NSDistributedNotificationCenter *dc=[NSDistributedNotificationCenter defaultCenter];
-		
-		
-		[wc addObserver:self selector:@selector(handleWorkspaceNotification:) name:NSWorkspaceWillSleepNotification object:nil];
-		[wc addObserver:self selector:@selector(handleWorkspaceNotification:) name:NSWorkspaceDidWakeNotification object:nil];
-		[wc addObserver:self selector:@selector(handleWorkspaceNotification:) name:NSWorkspaceWillPowerOffNotification object:nil];
-		[wc addObserver:self selector:@selector(handleWorkspaceNotification:) name:NSWorkspaceSessionDidResignActiveNotification object:nil];
-		[wc addObserver:self selector:@selector(handleWorkspaceNotification:) name:NSWorkspaceSessionDidBecomeActiveNotification object:nil];
-	
-		[wc addObserver:self selector:@selector(handleWorkspaceMountNotification:) name:NSWorkspaceDidMountNotification object:nil];
-		[wc addObserver:self selector:@selector(handleWorkspaceMountNotification:) name:NSWorkspaceDidUnmountNotification object:nil];
-		[wc addObserver:self selector:@selector(handleWorkspaceMountNotification:) name:NSWorkspaceWillUnmountNotification object:nil];
-        [wc addObserver:self selector:@selector(handleWorkspaceNotification:) name:NSWorkspaceActiveSpaceDidChangeNotification object:nil];
-		
-		//[dc addObserver:self selector:@selector(handleScreenSaverNotification:) name:@"com.apple.screensaver.action" object:nil];
-		[dc addObserver:self selector:@selector(handleScreenSaverNotification:) name:@"com.apple.screensaver.didstart" object:nil];
-		//		[dc addObserver:self selector:@selector(handleScreenSaverNotification:) name:@"com.apple.screensaver.willstop" object:nil];
-		[dc addObserver:self selector:@selector(handleScreenSaverNotification:) name:@"com.apple.screensaver.didstop" object:nil];
-        [dc addObserver:self selector:@selector(handleSystemNotification:) name:@"com.apple.internetconfignotification" object:nil];
-		
+        wsmap = [NSDictionary dictionaryWithObjectsAndKeys:
+                 NSWorkspaceWillSleepNotification, @"QSWorkspaceWillSleepEvent",
+                 NSWorkspaceDidWakeNotification, @"QSWorkspaceDidWakeEvent",
+                 NSWorkspaceWillPowerOffNotification, @"QSWorkspaceWillPowerOffEvent",
+                 NSWorkspaceSessionDidResignActiveNotification, @"QSWorkspaceSessionDidResignActiveEvent",
+                 NSWorkspaceSessionDidBecomeActiveNotification, @"QSWorkspaceSessionDidBecomeActiveEvent",
+                 NSWorkspaceActiveSpaceDidChangeNotification, @"QSActiveSpaceChangedEvent",
+                 NSWorkspaceDidMountNotification, @"QSWorkspaceDidMountEvent",
+                 NSWorkspaceWillUnmountNotification, @"QSWorkspaceWillUnmountEvent",
+                 NSWorkspaceDidUnmountNotification, @"QSWorkspaceDidUnmountEvent",
+                 nil];
+        [wsmap retain];
+        distmap = [NSDictionary dictionaryWithObjectsAndKeys:
+                   @"com.apple.internetconfignotification", @"QSNetworkConfigurationChanged",
+                   @"com.apple.screensaver.didstart", @"QSScreensaverStartedEvent",
+                   @"com.apple.screensaver.didstop", @"QSScreensaverStoppedEvent",
+                   nil];
+        [distmap retain];
 	}
 	return self;
 }
 
--(void)handleScreenSaverNotification:(NSNotification *)notif{
-	//if (VERBOSE)NSLog(@"screensavernotif:%@",notif);
-	NSString *name=[notif name];
-	if ([name isEqualToString:@"com.apple.screensaver.didstart"]){
-		name=@"QSScreensaverStartedEvent";
-	}else if ([name isEqualToString:@"com.apple.screensaver.didstop"]){
-		name=@"QSScreensaverStoppedEvent";
-	} else{
-		return;
-	}
-	[[QSEventTriggerManager sharedInstance]handleTriggerEvent:name withObject:nil];
+- (void)dealloc
+{
+    [wsmap release];
+    [distmap release];
+    [super dealloc];
 }
 
+- (void)addObserverForEvent:(NSString *)event trigger:(QSTrigger *)trigger
+{
+    if ([wsmap objectForKey:event]) {
+		NSNotificationCenter *wc = [[NSWorkspace sharedWorkspace] notificationCenter];
+        [wc addObserver:self selector:@selector(handleWorkspaceNotification:) name:[wsmap objectForKey:event] object:nil];
+    }
+    if ([distmap objectForKey:event]) {
+        NSDistributedNotificationCenter *dc = [NSDistributedNotificationCenter defaultCenter];
+        [dc addObserver:self selector:@selector(handleSystemNotification:) name:[distmap objectForKey:event] object:nil];
+    }
+}
+
+- (void)removeObserverForEvent:(NSString *)event trigger:(QSTrigger *)trigger
+{
+    if ([wsmap objectForKey:event]) {
+		NSNotificationCenter *wc = [[NSWorkspace sharedWorkspace] notificationCenter];
+        [wc removeObserver:self name:[wsmap objectForKey:event] object:nil];
+    }
+    if ([distmap objectForKey:event]) {
+        NSDistributedNotificationCenter *dc = [NSDistributedNotificationCenter defaultCenter];
+        [dc removeObserver:self name:[distmap objectForKey:event] object:nil];
+    }
+}
 
 -(void)handleWorkspaceNotification:(NSNotification *)notif{
-	NSString *name=[notif name];
-	if ([name isEqualToString:NSWorkspaceWillSleepNotification]){
-		name=@"QSWorkspaceWillSleepEvent";
-	}else if ([name isEqualToString:NSWorkspaceDidWakeNotification]){
-		name=@"QSWorkspaceDidWakeEvent";
-	}else if ([name isEqualToString:NSWorkspaceWillPowerOffNotification]){
-		name=@"QSWorkspaceWillPowerOffEvent";
-	}else if ([name isEqualToString:NSWorkspaceSessionDidResignActiveNotification]){
-		name=@"QSWorkspaceSessionDidResignActiveEvent";
-	}else if ([name isEqualToString:NSWorkspaceSessionDidBecomeActiveNotification]){
-		name=@"QSWorkspaceSessionDidBecomeActiveEvent";
-	}else if ([name isEqualToString:NSWorkspaceActiveSpaceDidChangeNotification]){
-		name=@"QSActiveSpaceChangedEvent";
-	} else{
+    NSString *name = [self nameForEvent:[notif name]];
+    if (!name) {
 		return;
 	}
-	[[QSEventTriggerManager sharedInstance]handleTriggerEvent:name withObject:nil];
-}
--(void)handleWorkspaceMountNotification:(NSNotification *)notif{
-	NSString *name=[notif name];
-	NSString *path=[[notif userInfo]objectForKey:@"NSDevicePath"];
-	
-	if ([path isEqualToString:@"/Network"])return;
-	QSObject *drive=[QSObject fileObjectWithPath:path];
-
-	if ([name isEqualToString:NSWorkspaceDidMountNotification]){
-		name=@"QSWorkspaceDidMountEvent";
-	}else if ([name isEqualToString:NSWorkspaceWillUnmountNotification]){
-		name=@"QSWorkspaceWillUnmountEvent";
-	}else if ([name isEqualToString:NSWorkspaceDidUnmountNotification]){
-		name=@"QSWorkspaceDidUnmountEvent";
-	}else{
-		return;
-	}
-
-	[[QSEventTriggerManager sharedInstance]handleTriggerEvent:name withObject:drive];
-
+    id argument = nil;
+	NSString *path = [[notif userInfo] objectForKey:@"NSDevicePath"];
+    if (path) {
+        if ([path isEqualToString:@"/Network"]) {
+            return;
+        }
+        argument = [QSObject fileObjectWithPath:path];
+    }
+	[[QSEventTriggerManager sharedInstance] handleTriggerEvent:name withObject:argument];
 }
 
 - (void)handleSystemNotification:(NSNotification *)notif
 {
-    NSString *name = [notif name];
-    if ([name isEqualToString:@"com.apple.internetconfignotification"]) {
-        name = @"QSNetworkConfigurationChanged";
-    } else {
-        return;
-    }
+    NSString *name = [self nameForEvent:[notif name]];
+    if (!name) {
+		return;
+	}
 	[[QSEventTriggerManager sharedInstance] handleTriggerEvent:name withObject:nil];
+}
+
+- (NSString *)nameForEvent:(NSString *)inName
+{
+    NSArray *keyList = [[distmap allKeysForObject:inName] arrayByAddingObjectsFromArray:[wsmap allKeysForObject:inName]];
+    if ([keyList count]) {
+        // should only be one
+        return [keyList objectAtIndex:0];
+    }
+    return nil;
 }
 @end
