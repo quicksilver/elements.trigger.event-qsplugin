@@ -32,7 +32,52 @@
 			<string>System</string>
 		</array>
 		<key>description</key>
-		<string>Trigger based on system events</string>
+		<string>Run triggers automatically based on system events</string>
+		<key>extendedDescription</key>
+		<string>&lt;h1&gt;Event Triggers&lt;/h1&gt;
+&lt;p&gt;With this plug-in, Quicksilver can run actions automatically as things happen on your system. For example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;When the screen saver activates, pause iTunes.&lt;/li&gt;
+&lt;li&gt;When the computer wakes from sleep, open Mail.&lt;/li&gt;
+&lt;li&gt;When the network changes, run a shell script.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can assign triggers for the following events:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Application Launched&lt;/li&gt;
+&lt;li&gt;Application Quit&lt;/li&gt;
+&lt;li&gt;Quicksilver Launched&lt;/li&gt;
+&lt;li&gt;Quicksilver Launched (at Login)&lt;/li&gt;
+&lt;li&gt;Quicksilver Will Quit&lt;/li&gt;
+&lt;li&gt;Active Space Changed&lt;/li&gt;
+&lt;li&gt;Computer Will Shut Down&lt;/li&gt;
+&lt;li&gt;Computer Will Sleep&lt;/li&gt;
+&lt;li&gt;Computer Woke Up&lt;/li&gt;
+&lt;li&gt;External Display Changed&lt;/li&gt;
+&lt;li&gt;Fast Login&lt;/li&gt;
+&lt;li&gt;Fast Logout&lt;/li&gt;
+&lt;li&gt;Network Changed&lt;/li&gt;
+&lt;li&gt;Disk Inserted&lt;/li&gt;
+&lt;li&gt;Disk Ejected&lt;/li&gt;
+&lt;li&gt;Disk Will Eject&lt;/li&gt;
+&lt;li&gt;Screen Saver Started&lt;/li&gt;
+&lt;li&gt;Screen Saver Stopped&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Other plug-ins may define additional events.&lt;/p&gt;
+&lt;h2&gt;Trigger Settings&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;Event&lt;/dt&gt;
+&lt;dd&gt;Choose the event you want Quicksilver to watch for.&lt;/dd&gt;
+&lt;dt&gt;Delay&lt;/dt&gt;
+&lt;dd&gt;When the event happens, wait a certain number of seconds before running the trigger. It doesn't need to be a whole number. For instance, 0.1 and 2.5 are valid values.&lt;/dd&gt;
+&lt;dt&gt;Ignore Repeats&lt;/dt&gt;
+&lt;dd&gt;For certain events, like "Application Launched", OS X might send multiple redundant notifications in rapid succession. Use this setting to prevent the trigger from running too many times.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;If you enable this setting with a delay of &lt;em&gt;n&lt;/em&gt; seconds, when multiple events occur within &lt;em&gt;n&lt;/em&gt; seconds of each other, the trigger will only run once (&lt;em&gt;n&lt;/em&gt; seconds after the last notification is sent).&lt;/p&gt;
+&lt;p&gt;It might take some experimentation to get this right. A tip is to initially set the trigger up to do something obvious, like show some text using the Large Type action or append some text to a file, and see how many times it runs.&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Restriction (Not yet implemented)&lt;/dt&gt;
+&lt;dd&gt;This should allow you to watch for specific applications to launch/quit or specific disks to mount/unmount.&lt;/dd&gt;
+&lt;/dl&gt;</string>
 		<key>icon</key>
 		<string>General</string>
 	</dict>
