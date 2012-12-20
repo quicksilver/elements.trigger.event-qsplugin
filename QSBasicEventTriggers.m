@@ -27,6 +27,7 @@
                    @"com.apple.internetconfignotification", @"QSNetworkConfigurationChanged",
                    @"com.apple.screensaver.didstart", @"QSScreensaverStartedEvent",
                    @"com.apple.screensaver.didstop", @"QSScreensaverStoppedEvent",
+                   @"com.apple.BezelServices.BMDisplayHWReconfiguredEvent", @"QSExternalDisplayChanged",
                    nil];
         [distmap retain];
 	}

@@ -89,6 +89,17 @@
 				<key>type</key>
 				<string>Application</string>
 			</dict>
+			<key>QSExternalDisplayChanged</key>
+			<dict>
+				<key>icon</key>
+				<string>Computer</string>
+				<key>name</key>
+				<string>External Display Changed</string>
+				<key>provider</key>
+				<string>QSBasicEventTriggers</string>
+				<key>type</key>
+				<string>Computer</string>
+			</dict>
 			<key>QSNetworkConfigurationChanged</key>
 			<dict>
 				<key>icon</key>
