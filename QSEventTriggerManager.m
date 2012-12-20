@@ -148,11 +148,15 @@
 }
 
 - (IBAction)setEventType:(id)sender{
+    NSString *triggerEvent = [[sender selectedItem] representedObject];
+    NSDictionary *events = [QSReg tableNamed:kQSTriggerEvents];
+    NSDictionary *event = [events objectForKey:triggerEvent];
+    BOOL restrictions = [[event objectForKey:@"allowMatching"] boolValue];
 	[self disableTrigger:[self currentTrigger]];
-	[[self currentTrigger] setObject:[[sender selectedItem]representedObject]forKey:@"eventTrigger"];
+	[[self currentTrigger] setObject:triggerEvent forKey:@"eventTrigger"];
+    [restrictionPopUp setEnabled:restrictions];
 	[[QSTriggerCenter sharedInstance] triggerChanged:[self currentTrigger]];
 	[self enableTrigger:[self currentTrigger]];
-	
 }
 
 - (void)populateInfoFields{
@@ -189,11 +193,13 @@
 		NSImage *image=[[QSResourceManager imageNamed:[event objectForKey:@"icon"]]duplicateOfSize:NSMakeSize(16,16)];
 		[item setImage:image];
 		[item setRepresentedObject:key];
-		
 	}
-	int index=[[eventPopUp menu]indexOfItemWithRepresentedObject:[[self currentTrigger] objectForKey:@"eventTrigger"]];
+    NSString *triggerEvent = [[self currentTrigger] objectForKey:@"eventTrigger"];
+	int index=[[eventPopUp menu]indexOfItemWithRepresentedObject:triggerEvent];
 	[eventPopUp selectItemAtIndex:index];
-	
+    event = [events objectForKey:triggerEvent];
+    BOOL restrictions = [[event objectForKey:@"allowMatching"] boolValue];
+    [restrictionPopUp setEnabled:restrictions];
 }
 
 
