@@ -168,6 +168,8 @@
 			</dict>
 			<key>QSWorkspaceDidMountEvent</key>
 			<dict>
+				<key>allowMatching</key>
+				<true/>
 				<key>icon</key>
 				<string>DriveIcon</string>
 				<key>name</key>
@@ -179,6 +181,8 @@
 			</dict>
 			<key>QSWorkspaceDidUnmountEvent</key>
 			<dict>
+				<key>allowMatching</key>
+				<true/>
 				<key>icon</key>
 				<string>DriveIcon</string>
 				<key>name</key>
@@ -245,6 +249,8 @@
 			</dict>
 			<key>QSWorkspaceWillUnmountEvent</key>
 			<dict>
+				<key>allowMatching</key>
+				<true/>
 				<key>icon</key>
 				<string>DriveIcon</string>
 				<key>name</key>
