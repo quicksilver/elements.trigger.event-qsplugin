@@ -32,17 +32,17 @@ Other plug-ins may define additional events.
 ## Trigger Settings ##
 
 Event
-: Choose the event you want Quicksilver to watch for.
+:   Choose the event you want Quicksilver to watch for.
 
 Delay
-: When the event happens, wait a certain number of seconds before running the trigger. It doesn't need to be a whole number. For instance, 0.1 and 2.5 are valid values.
+:   When the event happens, wait a certain number of seconds before running the trigger. It doesn't need to be a whole number. For instance, 0.1 and 2.5 are valid values.
 
 Ignore Repeats
-: For certain events, like "Application Launched", OS X might send multiple redundant notifications in rapid succession. Use this setting to prevent the trigger from running too many times.
-  
-  If you enable this setting with a delay of *n* seconds, when multiple events occur within *n* seconds of each other, the trigger will only run once (*n* seconds after the last notification is sent).
-  
-  It might take some experimentation to get this right. A tip is to initially set the trigger up to do something obvious, like show some text using the Large Type action or append some text to a file, and see how many times it runs.
+:   For certain events, like "Application Launched", OS X might send multiple redundant notifications in rapid succession. Use this setting to prevent the trigger from running too many times.
+
+    If you enable this setting with a delay of *n* seconds, when multiple events occur within *n* seconds of each other, the trigger will only run once (*n* seconds after the last notification is sent).
+
+    It might take some experimentation to get this right. A tip is to initially set the trigger up to do something obvious, like show some text using the Large Type action or append some text to a file, and see how many times it runs.
 
 Restriction (Not yet implemented)
-: This should allow you to watch for specific applications to launch/quit or specific disks to mount/unmount.
+:   This should allow you to watch for specific applications to launch/quit or specific disks to mount/unmount.
