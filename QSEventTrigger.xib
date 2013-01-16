@@ -190,7 +190,7 @@
 												<string key="NSFrameSize">{287, 220}</string>
 												<reference key="NSSuperview" ref="281471981"/>
 												<reference key="NSWindow"/>
-												<reference key="NSNextKeyView" ref="356728430"/>
+												<reference key="NSNextKeyView" ref="439095055"/>
 												<bool key="NSEnabled">YES</bool>
 												<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 												<bool key="NSControlAllowsExpansionToolTips">YES</bool>
@@ -361,7 +361,7 @@
 								<string key="NSFrameSize">{289, 238}</string>
 								<reference key="NSSuperview" ref="307804440"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="281471981"/>
+								<reference key="NSNextKeyView" ref="356728430"/>
 								<int key="NSsFlags">133650</int>
 								<reference key="NSVScroller" ref="909961985"/>
 								<reference key="NSHScroller" ref="356728430"/>
@@ -386,7 +386,7 @@
 												<string key="NSFrameSize">{287, 64}</string>
 												<reference key="NSSuperview" ref="78778105"/>
 												<reference key="NSWindow"/>
-												<reference key="NSNextKeyView" ref="461643180"/>
+												<reference key="NSNextKeyView"/>
 												<bool key="NSEnabled">YES</bool>
 												<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 												<bool key="NSControlAllowsExpansionToolTips">YES</bool>
@@ -501,7 +501,7 @@
 								<string key="NSFrame">{{0, 247}, {289, 82}}</string>
 								<reference key="NSSuperview" ref="307804440"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="78778105"/>
+								<reference key="NSNextKeyView" ref="461643180"/>
 								<int key="NSsFlags">133650</int>
 								<reference key="NSVScroller" ref="398918990"/>
 								<reference key="NSHScroller" ref="461643180"/>
@@ -649,7 +649,7 @@
 					</object>
 					<object class="NSTextField" id="879157401">
 						<reference key="NSNextResponder" ref="556860208"/>
-						<int key="NSvFlags">264</int>
+						<int key="NSvFlags">-2147483384</int>
 						<string key="NSFrame">{{17, 167}, {73, 14}}</string>
 						<reference key="NSSuperview" ref="556860208"/>
 						<reference key="NSWindow"/>
@@ -668,7 +668,7 @@
 					</object>
 					<object class="NSScrollView" id="721380287">
 						<reference key="NSNextResponder" ref="556860208"/>
-						<int key="NSvFlags">274</int>
+						<int key="NSvFlags">-2147483374</int>
 						<array class="NSMutableArray" key="NSSubviews">
 							<object class="NSClipView" id="312326880">
 								<reference key="NSNextResponder" ref="721380287"/>
@@ -680,7 +680,7 @@
 										<string key="NSFrameSize">{139, 107}</string>
 										<reference key="NSSuperview" ref="312326880"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="430696507"/>
+										<reference key="NSNextKeyView" ref="927764402"/>
 										<bool key="NSEnabled">YES</bool>
 										<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 										<bool key="NSControlAllowsExpansionToolTips">YES</bool>
@@ -777,7 +777,7 @@
 						<string key="NSFrame">{{88, 49}, {141, 109}}</string>
 						<reference key="NSSuperview" ref="556860208"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="312326880"/>
+						<reference key="NSNextKeyView" ref="430696507"/>
 						<int key="NSsFlags">133650</int>
 						<reference key="NSVScroller" ref="1033386616"/>
 						<reference key="NSHScroller" ref="430696507"/>
@@ -789,7 +789,7 @@
 					</object>
 					<object class="NSPopUpButton" id="202122801">
 						<reference key="NSNextResponder" ref="556860208"/>
-						<int key="NSvFlags">264</int>
+						<int key="NSvFlags">-2147483384</int>
 						<string key="NSFrame">{{85, 162}, {147, 22}}</string>
 						<reference key="NSSuperview" ref="556860208"/>
 						<reference key="NSWindow"/>
@@ -863,7 +863,7 @@
 					</object>
 					<object class="NSButton" id="927764402">
 						<reference key="NSNextResponder" ref="556860208"/>
-						<int key="NSvFlags">256</int>
+						<int key="NSvFlags">-2147483392</int>
 						<string key="NSFrame">{{88, 20}, {23, 21}}</string>
 						<reference key="NSSuperview" ref="556860208"/>
 						<reference key="NSWindow"/>
@@ -898,7 +898,7 @@
 					</object>
 					<object class="NSButton" id="990807829">
 						<reference key="NSNextResponder" ref="556860208"/>
-						<int key="NSvFlags">256</int>
+						<int key="NSvFlags">-2147483392</int>
 						<string key="NSFrame">{{111, 20}, {22, 21}}</string>
 						<reference key="NSSuperview" ref="556860208"/>
 						<reference key="NSWindow"/>
@@ -1783,16 +1783,11 @@
 					<string key="superclassName">QSTriggerManager</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="setEventType:">id</string>
-						<string key="setMouseTriggerValueForSender:">id</string>
 						<string key="updateTrigger:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="setEventType:">
 							<string key="name">setEventType:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="setMouseTriggerValueForSender:">
-							<string key="name">setMouseTriggerValueForSender:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="updateTrigger:">
