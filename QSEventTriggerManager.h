@@ -3,10 +3,8 @@
 //  Quicksilver
 //
 //  Created by Nicholas Jitkoff on Sun Jun 13 2004.
-//  Copyright (c) 2004 __MyCompanyName__. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <QSCore/QSTriggerManager.h>
 
 #define kQSTriggerEvents @"QSTriggerEvents"
@@ -24,8 +22,8 @@
 - (void)disableEventObserving:(NSString *)event;
 
 // Called when any matching triggers are enabled/disabled
-- (void)addObserverForEvent:(NSString *)event trigger:(NSDictionary *)trigger;
-- (void)removeObserverForEvent:(NSString *)event trigger:(NSDictionary *)trigger;
+- (void)addObserverForEvent:(NSString *)event trigger:(QSTrigger *)trigger;
+- (void)removeObserverForEvent:(NSString *)event trigger:(QSTrigger *)trigger;
 
 
 @end
@@ -34,6 +32,7 @@
 @interface QSEventTriggerManager : QSTriggerManager {
 	IBOutlet NSPopUpButton *eventPopUp;
 	IBOutlet NSTableView *triggerObjectsTable;
+    IBOutlet NSPopUpButton *restrictionPopUp;
 	NSDictionary *triggersByEvent;
 	id eventTriggerObject;
 }

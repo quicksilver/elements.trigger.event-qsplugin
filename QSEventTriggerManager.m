@@ -3,19 +3,16 @@
 //  Quicksilver
 //
 //  Created by Nicholas Jitkoff on Sun Jun 13 2004.
-//  Copyright (c) 2004 __MyCompanyName__. All rights reserved.
 //
 
 #import "QSEventTriggerManager.h"
-#import <QSCore/QSResourceManager.h>
-#import <QSInterface/QSObjectCell.h>
 #define QSTriggerCenter NSClassFromString(@"QSTriggerCenter")
 @implementation QSEventTriggerManager
 -(NSString *)name{
 	return @"Event";
 }
 -(NSImage *)image{
-	NSImage *image=[[[QSResourceManager imageNamed:@"GenericApplicationIcon"]copy]autorelease];
+	NSImage *image=[[[QSResourceManager imageNamed:@"General"]copy]autorelease];
 	[image setSize:NSMakeSize(16,16)];
 	return image;
 }
@@ -52,10 +49,12 @@
  
 	
 }
-- (void)triggerObjects{
-	return [NSMutableArray array];	
-	
+
+- (NSMutableArray *)triggerObjects
+{
+    return [NSMutableArray array];
 }
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
 	[self populateInfoFields];
 }
@@ -73,7 +72,7 @@
 	return array;
 }
 
--(BOOL)enableTrigger:(NSDictionary *)entry{
+-(BOOL)enableTrigger:(QSTrigger *)entry{
 	NSString *event=[entry objectForKey:kEventTrigger];
 	NSDictionary *eventInfo=[[QSReg tableNamed:kQSTriggerEvents]objectForKey:event];
 	NSString *providerClass=[eventInfo objectForKey:@"provider"];
@@ -84,18 +83,18 @@
 		if ([provider respondsToSelector:@selector(enableEventObserving:)])
 			[provider enableEventObserving:event];
 	}
-	[triggerArray addObject:entry];
-	
-	if ([provider respondsToSelector:@selector(addObserverForEvent:trigger:)])
-		[provider addObserverForEvent:event trigger:entry];
-	
-	
+    if (![triggerArray containsObject:entry]) {
+        [triggerArray addObject:entry];
+        if ([provider respondsToSelector:@selector(addObserverForEvent:trigger:)]) {
+            [provider addObserverForEvent:event trigger:entry];
+        }
+    }
     return YES;
 }
 
 
 
--(BOOL)disableTrigger:(NSDictionary *)entry{
+-(BOOL)disableTrigger:(QSTrigger *)entry{
 	NSString *event=[entry objectForKey:kEventTrigger];
 	NSDictionary *eventInfo=[[QSReg tableNamed:kQSTriggerEvents]objectForKey:event];
 	NSString *providerClass=[eventInfo objectForKey:@"provider"];
@@ -117,31 +116,18 @@
 
 
 -(void)handleTriggerEvent:(NSString *)event withObject:(id)object{
-	if (VERBOSE)	NSLog(@"Event:%@\r%@",event, object);	
-	NSEnumerator *e=[[self triggerArrayForEvent:event]objectEnumerator];
-	QSTrigger *trigger;
+	//if (VERBOSE)	NSLog(@"Event:%@\r%@",event, object);
 	[self setEventTriggerObject:object];
-	while (trigger=[e nextObject]){
-		
+	for (QSTrigger *trigger in [self triggerArrayForEvent:event]){
 		float delay=[[trigger objectForKey:@"eventDelay"]floatValue];
 		BOOL oneTime=[[trigger objectForKey:@"eventOneTime"]boolValue];
-		BOOL idle=[[trigger objectForKey:@"eventWaitTillIdle"]boolValue];
 		
-		//	if (oneTime)
-		//		[trigger setOneTime:YES];
-		
-		if (delay){
-			if (idle){
-				[trigger performSelector:@selector(execute) withObject:nil afterDelay:delay extend:NO];
-			}else{
-				[trigger performSelector:@selector(execute) withObject:nil afterIdleFor:delay repeat:NO];
-			}
-			
-		}else{
-			[trigger execute];	
+		if (delay) {
+            [trigger performSelector:@selector(execute) withObject:nil afterDelay:delay extend:oneTime];
+		} else {
+			[trigger execute];
 		}
 	}
-	
 }
 
 - (NSString *)descriptionForTrigger:(NSDictionary *)dict{
@@ -162,15 +148,19 @@
 }
 
 - (IBAction)setEventType:(id)sender{
+    NSString *triggerEvent = [[sender selectedItem] representedObject];
+    NSDictionary *events = [QSReg tableNamed:kQSTriggerEvents];
+    NSDictionary *event = [events objectForKey:triggerEvent];
+    BOOL restrictions = [[event objectForKey:@"allowMatching"] boolValue];
 	[self disableTrigger:[self currentTrigger]];
-	[[self currentTrigger] setObject:[[sender selectedItem]representedObject]forKey:@"eventTrigger"];
+	[[self currentTrigger] setObject:triggerEvent forKey:@"eventTrigger"];
+    [restrictionPopUp setEnabled:restrictions];
 	[[QSTriggerCenter sharedInstance] triggerChanged:[self currentTrigger]];
 	[self enableTrigger:[self currentTrigger]];
-	
 }
 
 - (void)populateInfoFields{
-	NSDictionary *thisTrigger=[self currentTrigger];
+	//QSTrigger *thisTrigger=[self currentTrigger];
 	//	NSLog(@"populate for %@",thisTrigger);
 	[eventPopUp removeAllItems];
 	
@@ -179,14 +169,11 @@
 	
 	NSSortDescriptor *typeDesc=[NSSortDescriptor descriptorWithKey:@"type" ascending:YES];
 	NSSortDescriptor *nameDesc=[NSSortDescriptor descriptorWithKey:@"name" ascending:YES];
-	NSEnumerator *ke=[[events keysSortedByValueUsingDescriptors:[NSArray arrayWithObjects:typeDesc,nameDesc,nil]]objectEnumerator];
 	
-	
-	NSString *key;
 	NSDictionary *event;
 	NSString *type=nil;
 	NSMenuItem *item=nil;
-	while(key=[ke nextObject]){ 
+	for (NSString *key in [events keysSortedByValueUsingDescriptors:[NSArray arrayWithObjects:typeDesc,nameDesc,nil]]) {
 		event=[events objectForKey:key];
 		NSString *newType=[event objectForKey:@"type"];
 		if (![type isEqualToString:newType]){
@@ -206,11 +193,13 @@
 		NSImage *image=[[QSResourceManager imageNamed:[event objectForKey:@"icon"]]duplicateOfSize:NSMakeSize(16,16)];
 		[item setImage:image];
 		[item setRepresentedObject:key];
-		
 	}
-	int index=[[eventPopUp menu]indexOfItemWithRepresentedObject:[[self currentTrigger] objectForKey:@"eventTrigger"]];
+    NSString *triggerEvent = [[self currentTrigger] objectForKey:@"eventTrigger"];
+	int index=[[eventPopUp menu]indexOfItemWithRepresentedObject:triggerEvent];
 	[eventPopUp selectItemAtIndex:index];
-	
+    event = [events objectForKey:triggerEvent];
+    BOOL restrictions = [[event objectForKey:@"allowMatching"] boolValue];
+    [restrictionPopUp setEnabled:restrictions];
 }
 
 
