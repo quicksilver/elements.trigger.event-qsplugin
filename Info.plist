@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
+	<key>CFBundleDisplayName</key>
+	<string>Event Triggers</string>
 	<key>CFBundleExecutable</key>
 	<string>Event Triggers</string>
 	<key>CFBundleIdentifier</key>
@@ -14,42 +16,68 @@
 	<string>Event Triggers</string>
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.1.0</string>
 	<key>CFBundleVersion</key>
-	<string>6D</string>
+	<string>71</string>
 	<key>NSPrincipalClass</key>
 	<string>QSEventTriggersPlugIn</string>
-	<key>QSActionsTemplate</key>
-	<dict>
-		<key>QSEventTriggersPlugInAction</key>
-		<dict>
-			<key>actionClass</key>
-			<string>QSEventTriggersPlugIn_Action</string>
-			<key>actionSelector</key>
-			<string>performActionOnObject:</string>
-			<key>directTypes</key>
-			<array>
-				<string>QSEventTriggersPlugIn_Type</string>
-			</array>
-			<key>name</key>
-			<string>Action: QSEventTriggersPlugIn</string>
-			<key>validatesObjects</key>
-			<false/>
-		</dict>
-	</dict>
 	<key>QSPlugIn</key>
 	<dict>
 		<key>author</key>
 		<string>Blacktree, Inc</string>
 		<key>categories</key>
-		<array/>
+		<array>
+			<string>Quicksilver</string>
+			<string>System</string>
+		</array>
 		<key>description</key>
-		<string>Trigger based on system events</string>
+		<string>Run triggers automatically based on system events</string>
+		<key>extendedDescription</key>
+		<string>&lt;h1&gt;Event Triggers&lt;/h1&gt;
+&lt;p&gt;With this plug-in, Quicksilver can run actions automatically as things happen on your system. For example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;When the screen saver activates, pause iTunes.&lt;/li&gt;
+&lt;li&gt;When the computer wakes from sleep, open Mail.&lt;/li&gt;
+&lt;li&gt;When the network changes, run a shell script.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can assign triggers for the following events:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Application Launched&lt;/li&gt;
+&lt;li&gt;Application Quit&lt;/li&gt;
+&lt;li&gt;Quicksilver Launched&lt;/li&gt;
+&lt;li&gt;Quicksilver Launched (at Login)&lt;/li&gt;
+&lt;li&gt;Quicksilver Will Quit&lt;/li&gt;
+&lt;li&gt;Active Space Changed&lt;/li&gt;
+&lt;li&gt;Computer Will Shut Down&lt;/li&gt;
+&lt;li&gt;Computer Will Sleep&lt;/li&gt;
+&lt;li&gt;Computer Woke Up&lt;/li&gt;
+&lt;li&gt;External Display Changed&lt;/li&gt;
+&lt;li&gt;Fast Login&lt;/li&gt;
+&lt;li&gt;Fast Logout&lt;/li&gt;
+&lt;li&gt;Ethernet Changed&lt;/li&gt;
+&lt;li&gt;Disk Inserted&lt;/li&gt;
+&lt;li&gt;Disk Ejected&lt;/li&gt;
+&lt;li&gt;Disk Will Eject&lt;/li&gt;
+&lt;li&gt;Screen Saver Started&lt;/li&gt;
+&lt;li&gt;Screen Saver Stopped&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Other plug-ins may define additional events.&lt;/p&gt;
+&lt;h2&gt;Trigger Settings&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;Event&lt;/dt&gt;
+&lt;dd&gt;Choose the event you want Quicksilver to watch for.&lt;/dd&gt;
+&lt;dt&gt;Delay&lt;/dt&gt;
+&lt;dd&gt;When the event happens, wait a certain number of seconds before running the trigger. It doesn't need to be a whole number. For instance, 0.1 and 2.5 are valid values.&lt;/dd&gt;
+&lt;dt&gt;Ignore Repeats&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;For certain events, like "Application Launched", OS X might send multiple redundant notifications in rapid succession. Use this setting to prevent the trigger from running too many times.&lt;/p&gt;
+&lt;p&gt;If you enable this setting with a delay of &lt;em&gt;n&lt;/em&gt; seconds, when multiple events occur within &lt;em&gt;n&lt;/em&gt; seconds of each other, the trigger will only run once (&lt;em&gt;n&lt;/em&gt; seconds after the last notification is sent).&lt;/p&gt;
+&lt;p&gt;It might take some experimentation to get this right. A tip is to initially set the trigger up to do something obvious, like show some text using the Large Type action or append some text to a file, and see how many times it runs.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;</string>
 		<key>icon</key>
-		<string>Event</string>
-		<key>relatedBundles </key>
-		<array/>
-		<key>secret</key>
-		<true/>
+		<string>General</string>
 	</dict>
 	<key>QSRegistration</key>
 	<dict>
@@ -67,6 +95,17 @@
 		</dict>
 		<key>QSTriggerEvents</key>
 		<dict>
+			<key>QSActiveSpaceChangedEvent</key>
+			<dict>
+				<key>icon</key>
+				<string>Computer</string>
+				<key>name</key>
+				<string>Active Space Changed</string>
+				<key>provider</key>
+				<string>QSBasicEventTriggers</string>
+				<key>type</key>
+				<string>Computer</string>
+			</dict>
 			<key>QSApplicationLaunchEvent</key>
 			<dict>
 				<key>allowMatching</key>
@@ -92,6 +131,28 @@
 				<string>QSProcessMonitor</string>
 				<key>type</key>
 				<string>Application</string>
+			</dict>
+			<key>QSExternalDisplayChanged</key>
+			<dict>
+				<key>icon</key>
+				<string>Computer</string>
+				<key>name</key>
+				<string>External Display Changed</string>
+				<key>provider</key>
+				<string>QSBasicEventTriggers</string>
+				<key>type</key>
+				<string>Computer</string>
+			</dict>
+			<key>QSEthernetConfigurationChanged</key>
+			<dict>
+				<key>icon</key>
+				<string>GenericNetworkIcon</string>
+				<key>name</key>
+				<string>Ethernet Changed</string>
+				<key>provider</key>
+				<string>QSProcessMonitor</string>
+				<key>type</key>
+				<string>Computer</string>
 			</dict>
 			<key>QSQuicksilverLaunchedAtLoginEvent</key>
 			<dict>
@@ -150,6 +211,8 @@
 			</dict>
 			<key>QSWorkspaceDidMountEvent</key>
 			<dict>
+				<key>allowMatching</key>
+				<true/>
 				<key>icon</key>
 				<string>DriveIcon</string>
 				<key>name</key>
@@ -161,6 +224,8 @@
 			</dict>
 			<key>QSWorkspaceDidUnmountEvent</key>
 			<dict>
+				<key>allowMatching</key>
+				<true/>
 				<key>icon</key>
 				<string>DriveIcon</string>
 				<key>name</key>
@@ -227,6 +292,8 @@
 			</dict>
 			<key>QSWorkspaceWillUnmountEvent</key>
 			<dict>
+				<key>allowMatching</key>
+				<true/>
 				<key>icon</key>
 				<string>DriveIcon</string>
 				<key>name</key>
@@ -242,41 +309,6 @@
 			<key>QSEventTrigger</key>
 			<string>QSEventTriggerManager</string>
 		</dict>
-	</dict>
-	<key>QSRequirementsTemplate</key>
-	<dict>
-		<key>bundlesTemplate</key>
-		<array>
-			<dict>
-				<key>id</key>
-				<string></string>
-				<key>name</key>
-				<string></string>
-				<key>version</key>
-				<string></string>
-			</dict>
-		</array>
-		<key>feature</key>
-		<integer>0</integer>
-		<key>launchLoad</key>
-		<false/>
-		<key>pathsTemplate</key>
-		<array>
-			<string>/path/to/something</string>
-		</array>
-		<key>pluginsTemplate</key>
-		<array>
-			<dict>
-				<key>id</key>
-				<string></string>
-				<key>name</key>
-				<string></string>
-				<key>version</key>
-				<string></string>
-			</dict>
-		</array>
-		<key>version</key>
-		<string>1337</string>
 	</dict>
 </dict>
 </plist>
