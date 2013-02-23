@@ -55,7 +55,7 @@
 &lt;li&gt;External Display Changed&lt;/li&gt;
 &lt;li&gt;Fast Login&lt;/li&gt;
 &lt;li&gt;Fast Logout&lt;/li&gt;
-&lt;li&gt;Network Changed&lt;/li&gt;
+&lt;li&gt;Ethernet Changed&lt;/li&gt;
 &lt;li&gt;Disk Inserted&lt;/li&gt;
 &lt;li&gt;Disk Ejected&lt;/li&gt;
 &lt;li&gt;Disk Will Eject&lt;/li&gt;
@@ -143,12 +143,12 @@
 				<key>type</key>
 				<string>Computer</string>
 			</dict>
-			<key>QSNetworkConfigurationChanged</key>
+			<key>QSEthernetConfigurationChanged</key>
 			<dict>
 				<key>icon</key>
 				<string>GenericNetworkIcon</string>
 				<key>name</key>
-				<string>Network Changed</string>
+				<string>Ethernet Changed</string>
 				<key>provider</key>
 				<string>QSProcessMonitor</string>
 				<key>type</key>

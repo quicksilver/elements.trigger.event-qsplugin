@@ -20,7 +20,7 @@ You can assign triggers for the following events:
   * External Display Changed
   * Fast Login
   * Fast Logout
-  * Network Changed
+  * Ethernet Changed
   * Disk Inserted
   * Disk Ejected
   * Disk Will Eject

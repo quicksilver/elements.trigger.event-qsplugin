@@ -24,7 +24,7 @@
                  nil];
         [wsmap retain];
         distmap = [NSDictionary dictionaryWithObjectsAndKeys:
-                   @"com.apple.internetconfignotification", @"QSNetworkConfigurationChanged",
+                   @"com.apple.internetconfignotification", @"QSEthernetConfigurationChanged",
                    @"com.apple.screensaver.didstart", @"QSScreensaverStartedEvent",
                    @"com.apple.screensaver.didstop", @"QSScreensaverStoppedEvent",
                    @"com.apple.BezelServices.BMDisplayHWReconfiguredEvent", @"QSExternalDisplayChanged",
