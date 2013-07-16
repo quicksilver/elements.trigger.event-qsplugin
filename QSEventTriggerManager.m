@@ -8,6 +8,9 @@
 #import "QSEventTriggerManager.h"
 #define QSTriggerCenter NSClassFromString(@"QSTriggerCenter")
 @implementation QSEventTriggerManager
+
+@synthesize eventTriggerObject;
+
 -(NSString *)name{
 	return @"Event";
 }
@@ -219,20 +222,4 @@
 	return [[self eventTriggerObject]types];
 }
 
-
-
-
-
-- (id)eventTriggerObject { return [[eventTriggerObject retain] autorelease]; }
-- (void)setEventTriggerObject:(id)newEventTriggerObject
-{
-    [eventTriggerObject autorelease];
-    eventTriggerObject = [newEventTriggerObject retain];
-}
-
 @end
-
-
-
-
-

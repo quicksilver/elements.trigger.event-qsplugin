@@ -37,6 +37,8 @@
 	id eventTriggerObject;
 }
 
+@property (retain) id eventTriggerObject;
+
 + (id)sharedInstance;
 - (IBAction)updateTrigger:(id)sender;
 - (IBAction)setEventType:(id)sender;
