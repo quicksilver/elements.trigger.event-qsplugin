@@ -222,4 +222,9 @@
 	return [[self eventTriggerObject]types];
 }
 
+- (NSTimeInterval)cacheTimeForProxy:(id)proxy
+{
+    return 0.0;
+}
+
 @end
