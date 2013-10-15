@@ -122,8 +122,8 @@
 	//if (VERBOSE)	NSLog(@"Event:%@\r%@",event, object);
 	[self setEventTriggerObject:object];
 	for (QSTrigger *trigger in [self triggerArrayForEvent:event]){
-		float delay=[[trigger objectForKey:@"eventDelay"]floatValue];
-		BOOL oneTime=[[trigger objectForKey:@"eventOneTime"]boolValue];
+		float delay=[[trigger objectForKey:@"delayDuration"] floatValue];
+		BOOL oneTime=[[trigger objectForKey:@"eventOneTime"] boolValue];
 		
 		if (delay) {
             [trigger performSelector:@selector(execute) withObject:nil afterDelay:delay extend:oneTime];
