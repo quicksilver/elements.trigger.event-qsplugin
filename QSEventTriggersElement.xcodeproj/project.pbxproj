@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8D1AC9700486D14A00FE50C9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD92D38A0106425D02CA0E72 /* Cocoa.framework */; };
 		D416002C1682445D00509469 /* QSEventTrigger.xib in Resources */ = {isa = PBXBuildFile; fileRef = D416002B1682445D00509469 /* QSEventTrigger.xib */; };
+		D48A3328185251DF009022DA /* QSInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48A3327185251DF009022DA /* QSInterface.framework */; };
 		E11E3A9807A3841700F55E58 /* QSBasicEventTriggers.h in Resources */ = {isa = PBXBuildFile; fileRef = E11E3A9607A3841700F55E58 /* QSBasicEventTriggers.h */; };
 		E11E3A9907A3841700F55E58 /* QSBasicEventTriggers.m in Sources */ = {isa = PBXBuildFile; fileRef = E11E3A9707A3841700F55E58 /* QSBasicEventTriggers.m */; };
 		E17CD96007A33F2B006BAEA7 /* QSEventTriggerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E17CD95E07A33F2B006BAEA7 /* QSEventTriggerManager.m */; };
@@ -25,7 +26,7 @@
 		D44124C81680C4C600793732 /* QSPlugIn.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = QSPlugIn.xcconfig; sourceTree = "<group>"; };
 		D44124C91680C4C600793732 /* Quicksilver.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quicksilver.pch; sourceTree = "<group>"; };
 		D44124CA1680C4C600793732 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
-		D44124CD1680C56E00793732 /* QSFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QSFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D48A3327185251DF009022DA /* QSInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QSInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD92D38A0106425D02CA0E72 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		E11E3A9607A3841700F55E58 /* QSBasicEventTriggers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSBasicEventTriggers.h; sourceTree = "<group>"; };
 		E11E3A9707A3841700F55E58 /* QSBasicEventTriggers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSBasicEventTriggers.m; sourceTree = "<group>"; };
@@ -38,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D48A3328185251DF009022DA /* QSInterface.framework in Frameworks */,
 				8D1AC9700486D14A00FE50C9 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,7 +79,7 @@
 		2E58F364FFB232C311CA0CBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D44124CD1680C56E00793732 /* QSFoundation.framework */,
+				D48A3327185251DF009022DA /* QSInterface.framework */,
 				DD92D38A0106425D02CA0E72 /* Cocoa.framework */,
 			);
 			name = Frameworks;
@@ -135,6 +137,8 @@
 /* Begin PBXProject section */
 		0259C573FE90428111CA0C5A /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = 7F07AFDE085E433000E2AFC4 /* Build configuration list for PBXProject "QSEventTriggersElement" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;
@@ -203,7 +207,6 @@
 					/tmp/QS/build/Release,
 				);
 				PRODUCT_NAME = "Event Triggers";
-				ZERO_LINK = YES;
 			};
 			name = Release;
 		};
@@ -230,7 +233,6 @@
 					/tmp/QS/build/Release,
 				);
 				PRODUCT_NAME = "Event Triggers";
-				ZERO_LINK = YES;
 			};
 			name = Debug;
 		};

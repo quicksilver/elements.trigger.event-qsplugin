@@ -31,8 +31,8 @@
 
 @interface QSEventTriggerManager : QSTriggerManager {
 	IBOutlet NSPopUpButton *eventPopUp;
-	IBOutlet NSTableView *triggerObjectsTable;
-    IBOutlet NSPopUpButton *restrictionPopUp;
+    IBOutlet NSTextField *matchLabel;
+    IBOutlet NSTextField *ignoreLabel;
 	NSDictionary *triggersByEvent;
 	id eventTriggerObject;
 }

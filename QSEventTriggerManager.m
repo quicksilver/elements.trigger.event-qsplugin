@@ -47,10 +47,6 @@
 	
     //imageAndTextCell = [[[QSImageAndTextCell alloc] init] autorelease];
 	//  [imageAndTextCell setWraps:NO];
-    [[triggerObjectsTable tableColumnWithIdentifier: kItemName] setDataCell:objectCell];
-    [[[triggerObjectsTable tableColumnWithIdentifier: kItemName]dataCell] setFont:[NSFont systemFontOfSize:11]];
- 
-	
 }
 
 - (NSMutableArray *)triggerObjects
@@ -154,12 +150,13 @@
     NSString *triggerEvent = [[sender selectedItem] representedObject];
     NSDictionary *events = [QSReg tableNamed:kQSTriggerEvents];
     NSDictionary *event = [events objectForKey:triggerEvent];
-    BOOL restrictions = [[event objectForKey:@"allowMatching"] boolValue];
 	[self disableTrigger:[self currentTrigger]];
 	[[self currentTrigger] setObject:triggerEvent forKey:@"eventTrigger"];
-    [restrictionPopUp setEnabled:restrictions];
 	[[QSTriggerCenter sharedInstance] triggerChanged:[self currentTrigger]];
 	[self enableTrigger:[self currentTrigger]];
+    BOOL noMatching = ![[event objectForKey:@"allowMatching"] boolValue];
+    [matchLabel setHidden:noMatching];
+    [ignoreLabel setHidden:noMatching];
 }
 
 - (void)populateInfoFields{
@@ -198,11 +195,12 @@
 		[item setRepresentedObject:key];
 	}
     NSString *triggerEvent = [[self currentTrigger] objectForKey:@"eventTrigger"];
-	int index=[[eventPopUp menu]indexOfItemWithRepresentedObject:triggerEvent];
+	NSInteger index = [[eventPopUp menu]indexOfItemWithRepresentedObject:triggerEvent];
 	[eventPopUp selectItemAtIndex:index];
     event = [events objectForKey:triggerEvent];
-    BOOL restrictions = [[event objectForKey:@"allowMatching"] boolValue];
-    [restrictionPopUp setEnabled:restrictions];
+    BOOL noMatching = ![[event objectForKey:@"allowMatching"] boolValue];
+    [matchLabel setHidden:noMatching];
+    [ignoreLabel setHidden:noMatching];
 }
 
 
