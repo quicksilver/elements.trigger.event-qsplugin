@@ -45,6 +45,8 @@
 }
 
 @property (retain) id eventTriggerObject;
+@property (retain) NSMutableArray *matchList;
+@property (retain) NSMutableArray *ignoreList;
 
 + (id)sharedInstance;
 - (IBAction)updateTrigger:(id)sender;

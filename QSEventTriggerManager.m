@@ -38,6 +38,8 @@
 			   forKeyPath:@"currentTrigger"
 				  options:0
 				  context:nil];
+        _matchList = [[NSMutableArray alloc] init];
+        _ignoreList = [[NSMutableArray alloc] init];
 	}
     return self;
 } 
@@ -117,7 +119,17 @@
 -(void)handleTriggerEvent:(NSString *)event withObject:(id)object{
 	//if (VERBOSE)	NSLog(@"Event:%@\r%@",event, object);
 	[self setEventTriggerObject:object];
+    NSString *objectID = [object respondsToSelector:@selector(identifier)] ? [object identifier] : @"";
+    NSArray *matchList, *ignoreList = nil;
 	for (QSTrigger *trigger in [self triggerArrayForEvent:event]){
+        // see if trigger should fire based on defined restrictions
+        matchList = [trigger objectForKey:kQSEventTriggerMatch];
+        ignoreList = [trigger objectForKey:kQSEventTriggerIgnore];
+        if (([matchList count] && ![matchList containsObject:objectID])
+            || [ignoreList containsObject:objectID]) {
+            continue;
+        }
+        // execute trigger
 		float delay=[[trigger objectForKey:kQSEventTriggerDelay] floatValue];
 		BOOL oneTime=[[trigger objectForKey:kQSEventTriggerOneTime] boolValue];
 		
@@ -201,8 +213,36 @@
     BOOL matching = [[event objectForKey:kQSEventTriggerAllowMatching] boolValue];
     [matchLabel setHidden:!matching];
     [ignoreLabel setHidden:!matching];
+    if (matching) {
+        QSObject *restriction = nil;
+        NSMutableArray *matchIDs = [[self currentTrigger] objectForKey:kQSEventTriggerMatch];
+        if ([matchIDs count]) {
+            [self willChangeValueForKey:@"matchList"];
+            [self.matchList removeAllObjects];
+            for (NSString *ident in matchIDs) {
+                restriction = [QSLib objectWithIdentifier:ident];
+                if (!restriction) {
+                    restriction = [QSObject objectWithString:ident];
+                }
+                [self.matchList addObject:restriction];
+            }
+            [self didChangeValueForKey:@"matchList"];
+        }
+        NSMutableArray *ignoreIDs = [[self currentTrigger] objectForKey:kQSEventTriggerIgnore];
+        if ([ignoreIDs count]) {
+            [self willChangeValueForKey:@"ignoreList"];
+            [self.ignoreList removeAllObjects];
+            for (NSString *ident in ignoreIDs) {
+                restriction = [QSLib objectWithIdentifier:ident];
+                if (!restriction) {
+                    restriction = [QSObject objectWithString:ident];
+                }
+                [self.ignoreList addObject:restriction];
+            }
+            [self didChangeValueForKey:@"ignoreList"];
+        }
+    }
 }
-
 
 - (IBAction) setMouseTriggerValueForSender:(id)sender{
 	
