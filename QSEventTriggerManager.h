@@ -8,10 +8,17 @@
 #import <QSCore/QSTriggerManager.h>
 
 #define kQSTriggerEvents @"QSTriggerEvents"
-#define kEventTrigger @"eventTrigger"
 
 #define QSEventNotification @"QSEventNotification"
 
+// trigger dictionary keys
+#define kQSEventTrigger @"eventTrigger"
+#define kQSEventTriggerName @"name"
+#define kQSEventTriggerDelay @"delayDuration"
+#define kQSEventTriggerOneTime @"eventOneTime"
+#define kQSEventTriggerAllowMatching @"allowMatching"
+#define kQSEventTriggerMatch @"matchList"
+#define kQSEventTriggerIgnore @"ignoreList"
 
 @interface NSObject (QSEventTriggerProvider)
 

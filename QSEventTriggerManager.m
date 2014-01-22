@@ -72,7 +72,7 @@
 }
 
 -(BOOL)enableTrigger:(QSTrigger *)entry{
-	NSString *event=[entry objectForKey:kEventTrigger];
+	NSString *event=[entry objectForKey:kQSEventTrigger];
 	NSDictionary *eventInfo=[[QSReg tableNamed:kQSTriggerEvents]objectForKey:event];
 	NSString *providerClass=[eventInfo objectForKey:@"provider"];
 	id provider=[QSReg getClassInstance:providerClass];
@@ -94,7 +94,7 @@
 
 
 -(BOOL)disableTrigger:(QSTrigger *)entry{
-	NSString *event=[entry objectForKey:kEventTrigger];
+	NSString *event=[entry objectForKey:kQSEventTrigger];
 	NSDictionary *eventInfo=[[QSReg tableNamed:kQSTriggerEvents]objectForKey:event];
 	NSString *providerClass=[eventInfo objectForKey:@"provider"];
 	id provider=[QSReg getClassInstance:providerClass];
@@ -118,8 +118,8 @@
 	//if (VERBOSE)	NSLog(@"Event:%@\r%@",event, object);
 	[self setEventTriggerObject:object];
 	for (QSTrigger *trigger in [self triggerArrayForEvent:event]){
-		float delay=[[trigger objectForKey:@"delayDuration"] floatValue];
-		BOOL oneTime=[[trigger objectForKey:@"eventOneTime"] boolValue];
+		float delay=[[trigger objectForKey:kQSEventTriggerDelay] floatValue];
+		BOOL oneTime=[[trigger objectForKey:kQSEventTriggerOneTime] boolValue];
 		
 		if (delay) {
             [trigger performSelector:@selector(execute) withObject:nil afterDelay:delay extend:oneTime];
@@ -130,9 +130,9 @@
 }
 
 - (NSString *)descriptionForTrigger:(NSDictionary *)dict{
-	NSString *event=[dict objectForKey:kEventTrigger];
+	NSString *event=[dict objectForKey:kQSEventTrigger];
 	NSDictionary *eventInfo=[[QSReg tableNamed:kQSTriggerEvents]objectForKey:event];
-	return [eventInfo objectForKey:@"name"];
+	return [eventInfo objectForKey:kQSEventTriggerName];
 }
 
 - (NSView *) settingsView{
@@ -151,10 +151,10 @@
     NSDictionary *events = [QSReg tableNamed:kQSTriggerEvents];
     NSDictionary *event = [events objectForKey:triggerEvent];
 	[self disableTrigger:[self currentTrigger]];
-	[[self currentTrigger] setObject:triggerEvent forKey:@"eventTrigger"];
+	[[self currentTrigger] setObject:triggerEvent forKey:kQSEventTrigger];
 	[[QSTriggerCenter sharedInstance] triggerChanged:[self currentTrigger]];
 	[self enableTrigger:[self currentTrigger]];
-    BOOL noMatching = ![[event objectForKey:@"allowMatching"] boolValue];
+    BOOL noMatching = ![[event objectForKey:kQSEventTriggerAllowMatching] boolValue];
     [matchLabel setHidden:noMatching];
     [ignoreLabel setHidden:noMatching];
 }
@@ -186,21 +186,21 @@
 				[item setEnabled:NO];
 			}
 		}
-		item=[[eventPopUp menu]addItemWithTitle:[event objectForKey:@"name"]
+		item=[[eventPopUp menu]addItemWithTitle:[event objectForKey:kQSEventTriggerName]
 										 action:nil
 								  keyEquivalent:@""];
-		//	NSLog(@"Event %@",[event objectForKey:@"name"]);
+		//	NSLog(@"Event %@",[event objectForKey:kQSEventTriggerName]);
 		NSImage *image=[[QSResourceManager imageNamed:[event objectForKey:@"icon"]]duplicateOfSize:NSMakeSize(16,16)];
 		[item setImage:image];
 		[item setRepresentedObject:key];
 	}
-    NSString *triggerEvent = [[self currentTrigger] objectForKey:@"eventTrigger"];
+    NSString *triggerEvent = [[self currentTrigger] objectForKey:kQSEventTrigger];
 	NSInteger index = [[eventPopUp menu]indexOfItemWithRepresentedObject:triggerEvent];
 	[eventPopUp selectItemAtIndex:index];
     event = [events objectForKey:triggerEvent];
-    BOOL noMatching = ![[event objectForKey:@"allowMatching"] boolValue];
-    [matchLabel setHidden:noMatching];
-    [ignoreLabel setHidden:noMatching];
+    BOOL matching = [[event objectForKey:kQSEventTriggerAllowMatching] boolValue];
+    [matchLabel setHidden:!matching];
+    [ignoreLabel setHidden:!matching];
 }
 
 
