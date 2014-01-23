@@ -314,8 +314,8 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="bY2-42-Qf7" name="value" keyPath="objectValue.displayName" id="UzG-fx-nDb"/>
                                                             <binding destination="bY2-42-Qf7" name="toolTip" keyPath="objectValue.details" id="DrL-ii-df4"/>
+                                                            <binding destination="bY2-42-Qf7" name="value" keyPath="objectValue.displayName" id="UzG-fx-nDb"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
@@ -328,7 +328,7 @@
                                     </tableColumn>
                                 </tableColumns>
                                 <connections>
-                                    <binding destination="BQc-VL-AdO" name="content" keyPath="arrangedObjects" id="Q9d-5g-86b"/>
+                                    <binding destination="BQc-VL-AdO" name="content" keyPath="arrangedObjects" id="tOB-of-Lyb"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -426,8 +426,8 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="zsO-ZD-WO3" name="value" keyPath="objectValue.displayName" id="BYg-U2-stK"/>
                                                             <binding destination="zsO-ZD-WO3" name="toolTip" keyPath="objectValue.details" id="e4G-s7-6Ak"/>
+                                                            <binding destination="zsO-ZD-WO3" name="value" keyPath="objectValue.displayName" id="BYg-U2-stK"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
@@ -490,12 +490,20 @@
         </objectController>
         <arrayController id="BQc-VL-AdO" userLabel="matchObjects">
             <connections>
-                <binding destination="-2" name="contentArray" keyPath="matchList" id="fRg-LJ-kHa"/>
+                <binding destination="-2" name="contentArray" keyPath="matchList" id="j1A-of-j2l">
+                    <dictionary key="options">
+                        <string key="NSValueTransformerName">QSObjectValueTransformerET</string>
+                    </dictionary>
+                </binding>
             </connections>
         </arrayController>
         <arrayController id="S0j-yo-jAU" userLabel="ignoreObjects">
             <connections>
-                <binding destination="-2" name="contentArray" keyPath="ignoreList" id="DC7-IQ-OgG"/>
+                <binding destination="-2" name="contentArray" keyPath="ignoreList" id="wgy-Qy-D3T">
+                    <dictionary key="options">
+                        <string key="NSValueTransformerName">QSObjectValueTransformerET</string>
+                    </dictionary>
+                </binding>
             </connections>
         </arrayController>
     </objects>

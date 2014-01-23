@@ -214,33 +214,8 @@
     [matchLabel setHidden:!matching];
     [ignoreLabel setHidden:!matching];
     if (matching) {
-        QSObject *restriction = nil;
-        NSMutableArray *matchIDs = [[self currentTrigger] objectForKey:kQSEventTriggerMatch];
-        if ([matchIDs count]) {
-            [self willChangeValueForKey:@"matchList"];
-            [self.matchList removeAllObjects];
-            for (NSString *ident in matchIDs) {
-                restriction = [QSLib objectWithIdentifier:ident];
-                if (!restriction) {
-                    restriction = [QSObject objectWithString:ident];
-                }
-                [self.matchList addObject:restriction];
-            }
-            [self didChangeValueForKey:@"matchList"];
-        }
-        NSMutableArray *ignoreIDs = [[self currentTrigger] objectForKey:kQSEventTriggerIgnore];
-        if ([ignoreIDs count]) {
-            [self willChangeValueForKey:@"ignoreList"];
-            [self.ignoreList removeAllObjects];
-            for (NSString *ident in ignoreIDs) {
-                restriction = [QSLib objectWithIdentifier:ident];
-                if (!restriction) {
-                    restriction = [QSObject objectWithString:ident];
-                }
-                [self.ignoreList addObject:restriction];
-            }
-            [self didChangeValueForKey:@"ignoreList"];
-        }
+        self.matchList = [[self currentTrigger] objectForKey:kQSEventTriggerMatch];
+        self.ignoreList = [[self currentTrigger] objectForKey:kQSEventTriggerIgnore];
     }
 }
 

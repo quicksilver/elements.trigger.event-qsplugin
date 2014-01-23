@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8D1AC9700486D14A00FE50C9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD92D38A0106425D02CA0E72 /* Cocoa.framework */; };
 		D416002C1682445D00509469 /* QSEventTrigger.xib in Resources */ = {isa = PBXBuildFile; fileRef = D416002B1682445D00509469 /* QSEventTrigger.xib */; };
+		D44C09911891A2D1009F83AE /* QSObjectValueTransformerET.m in Sources */ = {isa = PBXBuildFile; fileRef = D44C09901891A2D1009F83AE /* QSObjectValueTransformerET.m */; };
 		D48A3328185251DF009022DA /* QSInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48A3327185251DF009022DA /* QSInterface.framework */; };
 		E11E3A9807A3841700F55E58 /* QSBasicEventTriggers.h in Resources */ = {isa = PBXBuildFile; fileRef = E11E3A9607A3841700F55E58 /* QSBasicEventTriggers.h */; };
 		E11E3A9907A3841700F55E58 /* QSBasicEventTriggers.m in Sources */ = {isa = PBXBuildFile; fileRef = E11E3A9707A3841700F55E58 /* QSBasicEventTriggers.m */; };
@@ -26,6 +27,8 @@
 		D44124C81680C4C600793732 /* QSPlugIn.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = QSPlugIn.xcconfig; sourceTree = "<group>"; };
 		D44124C91680C4C600793732 /* Quicksilver.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quicksilver.pch; sourceTree = "<group>"; };
 		D44124CA1680C4C600793732 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		D44C098F1891A2D1009F83AE /* QSObjectValueTransformerET.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSObjectValueTransformerET.h; sourceTree = "<group>"; };
+		D44C09901891A2D1009F83AE /* QSObjectValueTransformerET.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSObjectValueTransformerET.m; sourceTree = "<group>"; };
 		D48A3327185251DF009022DA /* QSInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QSInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD92D38A0106425D02CA0E72 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		E11E3A9607A3841700F55E58 /* QSBasicEventTriggers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSBasicEventTriggers.h; sourceTree = "<group>"; };
@@ -92,6 +95,8 @@
 				E11E3A9707A3841700F55E58 /* QSBasicEventTriggers.m */,
 				E17CD95D07A33F2B006BAEA7 /* QSEventTriggerManager.h */,
 				E17CD95E07A33F2B006BAEA7 /* QSEventTriggerManager.m */,
+				D44C098F1891A2D1009F83AE /* QSObjectValueTransformerET.h */,
+				D44C09901891A2D1009F83AE /* QSObjectValueTransformerET.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E17CD96007A33F2B006BAEA7 /* QSEventTriggerManager.m in Sources */,
+				D44C09911891A2D1009F83AE /* QSObjectValueTransformerET.m in Sources */,
 				E11E3A9907A3841700F55E58 /* QSBasicEventTriggers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
