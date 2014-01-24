@@ -263,7 +263,8 @@
                     </buttonCell>
                     <connections>
                         <action selector="remove:" target="BQc-VL-AdO" id="JTZ-4f-KuE"/>
-                        <binding destination="-2" name="hidden" keyPath="matchLabel.hidden" id="xVd-p5-hDv"/>
+                        <binding destination="BQc-VL-AdO" name="enabled" keyPath="canRemove" id="03Y-CQ-HSc"/>
+                        <binding destination="-2" name="hidden" keyPath="matchLabel.hidden" previousBinding="03Y-CQ-HSc" id="Rrz-PU-aYH"/>
                     </connections>
                 </button>
                 <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="UEk-m6-gNT">
@@ -375,7 +376,8 @@
                     </buttonCell>
                     <connections>
                         <action selector="remove:" target="S0j-yo-jAU" id="UpR-Nk-jLU"/>
-                        <binding destination="-2" name="hidden" keyPath="ignoreLabel.hidden" id="1P1-JI-p2I"/>
+                        <binding destination="S0j-yo-jAU" name="enabled" keyPath="canRemove" id="gmt-DB-aqr"/>
+                        <binding destination="-2" name="hidden" keyPath="ignoreLabel.hidden" previousBinding="gmt-DB-aqr" id="5so-iw-xhw"/>
                     </connections>
                 </button>
                 <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="At8-FF-JIA">
