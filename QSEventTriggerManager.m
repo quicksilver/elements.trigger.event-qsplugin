@@ -38,18 +38,9 @@
 			   forKeyPath:@"currentTrigger"
 				  options:0
 				  context:nil];
-        _matchList = [[NSMutableArray alloc] init];
-        _ignoreList = [[NSMutableArray alloc] init];
 	}
     return self;
 } 
-- (void)awakeFromNib{
-	
-    QSObjectCell *objectCell = [[[QSObjectCell alloc] init] autorelease];
-	
-    //imageAndTextCell = [[[QSImageAndTextCell alloc] init] autorelease];
-	//  [imageAndTextCell setWraps:NO];
-}
 
 - (NSMutableArray *)triggerObjects
 {
