@@ -11,13 +11,14 @@
 
 #define QSEventNotification @"QSEventNotification"
 
-// trigger dictionary keys
+// event type keys
 #define kQSEventTrigger @"eventTrigger"
 #define kQSEventTriggerName @"name"
+#define kQSEventTriggerAllowMatching @"allowMatching"
+// trigger keys
 #define kQSEventTriggerDelay @"eventDelay"
 #define kQSEventTriggerDelayDuration @"delayDuration"
 #define kQSEventTriggerOneTime @"eventOneTime"
-#define kQSEventTriggerAllowMatching @"allowMatching"
 #define kQSEventTriggerMatch @"matchList"
 #define kQSEventTriggerIgnore @"ignoreList"
 
