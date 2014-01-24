@@ -460,20 +460,6 @@
                 </scrollView>
             </subviews>
         </customView>
-        <objectController id="131" userLabel="manager">
-            <declaredKeys>
-                <string>eventCombineMultiple</string>
-                <string>eventRepeat</string>
-                <string>eventWaitTillIdle</string>
-                <string>eventDelay</string>
-                <string>eventTrigger</string>
-                <string>objects</string>
-                <string>triggerObjects</string>
-            </declaredKeys>
-            <connections>
-                <outlet property="content" destination="-2" id="132"/>
-            </connections>
-        </objectController>
         <objectController objectClassName="QSTrigger" id="153" userLabel="trigger">
             <declaredKeys>
                 <string>delayDuration</string>
