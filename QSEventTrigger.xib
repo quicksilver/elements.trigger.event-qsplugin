@@ -474,15 +474,13 @@
                 <outlet property="content" destination="-2" id="132"/>
             </connections>
         </objectController>
-        <objectController id="153" userLabel="trigger">
+        <objectController objectClassName="QSTrigger" id="153" userLabel="trigger">
             <declaredKeys>
-                <string>delay</string>
-                <string>delayInterval</string>
-                <string>eventWaitTillIdle</string>
+                <string>delayDuration</string>
                 <string>eventDelay</string>
-                <string>oneshot</string>
-                <string>eventCombineMultiple</string>
-                <string>objectRestriction</string>
+                <string>eventOneTime</string>
+                <string>matchList</string>
+                <string>ignoreList</string>
             </declaredKeys>
             <connections>
                 <binding destination="-2" name="contentObject" keyPath="currentTrigger.info" id="154"/>
