@@ -329,7 +329,12 @@
                                     </tableColumn>
                                 </tableColumns>
                                 <connections>
-                                    <binding destination="BQc-VL-AdO" name="content" keyPath="arrangedObjects" id="tOB-of-Lyb"/>
+                                    <action selector="updateTrigger:" target="-2" id="tdN-eI-b2L"/>
+                                    <binding destination="BQc-VL-AdO" name="content" keyPath="arrangedObjects" id="P77-h3-UzZ">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">QSObjectValueTransformerET</string>
+                                        </dictionary>
+                                    </binding>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -442,7 +447,12 @@
                                     </tableColumn>
                                 </tableColumns>
                                 <connections>
-                                    <binding destination="S0j-yo-jAU" name="content" keyPath="arrangedObjects" id="eEZ-2R-eyE"/>
+                                    <action selector="updateTrigger:" target="-2" id="MeA-KW-qWb"/>
+                                    <binding destination="S0j-yo-jAU" name="content" keyPath="arrangedObjects" id="lFB-Vz-npL">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">QSObjectValueTransformerET</string>
+                                        </dictionary>
+                                    </binding>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -476,20 +486,12 @@
         </objectController>
         <arrayController id="BQc-VL-AdO" userLabel="matchObjects">
             <connections>
-                <binding destination="153" name="contentArray" keyPath="selection.matchList" id="BVH-lC-yoI">
-                    <dictionary key="options">
-                        <string key="NSValueTransformerName">QSObjectValueTransformerET</string>
-                    </dictionary>
-                </binding>
+                <binding destination="153" name="contentArray" keyPath="selection.matchList" id="CxA-PA-i84"/>
             </connections>
         </arrayController>
         <arrayController id="S0j-yo-jAU" userLabel="ignoreObjects">
             <connections>
-                <binding destination="153" name="contentArray" keyPath="selection.ignoreList" id="iG0-po-YZI">
-                    <dictionary key="options">
-                        <string key="NSValueTransformerName">QSObjectValueTransformerET</string>
-                    </dictionary>
-                </binding>
+                <binding destination="153" name="contentArray" keyPath="selection.ignoreList" id="hS1-Za-txr"/>
             </connections>
         </arrayController>
     </objects>
