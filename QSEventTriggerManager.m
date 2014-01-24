@@ -130,11 +130,12 @@
             continue;
         }
         // execute trigger
-		float delay=[[trigger objectForKey:kQSEventTriggerDelay] floatValue];
+        BOOL delay = [[trigger objectForKey:kQSEventTriggerDelay] boolValue];
+		float duration=[[trigger objectForKey:kQSEventTriggerDelayDuration] floatValue];
 		BOOL oneTime=[[trigger objectForKey:kQSEventTriggerOneTime] boolValue];
 		
-		if (delay) {
-            [trigger performSelector:@selector(execute) withObject:nil afterDelay:delay extend:oneTime];
+		if (delay && duration) {
+            [trigger performSelector:@selector(execute) withObject:nil afterDelay:duration extend:oneTime];
 		} else {
 			[trigger execute];
 		}

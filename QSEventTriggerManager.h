@@ -14,7 +14,8 @@
 // trigger dictionary keys
 #define kQSEventTrigger @"eventTrigger"
 #define kQSEventTriggerName @"name"
-#define kQSEventTriggerDelay @"delayDuration"
+#define kQSEventTriggerDelay @"eventDelay"
+#define kQSEventTriggerDelayDuration @"delayDuration"
 #define kQSEventTriggerOneTime @"eventOneTime"
 #define kQSEventTriggerAllowMatching @"allowMatching"
 #define kQSEventTriggerMatch @"matchList"
