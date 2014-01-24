@@ -214,10 +214,6 @@
     BOOL matching = [[event objectForKey:kQSEventTriggerAllowMatching] boolValue];
     [matchLabel setHidden:!matching];
     [ignoreLabel setHidden:!matching];
-    if (matching) {
-        self.matchList = [[self currentTrigger] objectForKey:kQSEventTriggerMatch];
-        self.ignoreList = [[self currentTrigger] objectForKey:kQSEventTriggerIgnore];
-    }
 }
 
 - (IBAction) setMouseTriggerValueForSender:(id)sender{

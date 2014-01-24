@@ -19,19 +19,35 @@
             <rect key="frame" x="0.0" y="0.0" width="249" height="330"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <textField verticalHuggingPriority="750" id="149">
-                    <rect key="frame" x="18" y="261" width="54" height="14"/>
+                <textField verticalHuggingPriority="750" id="148">
+                    <rect key="frame" x="18" y="294" width="54" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Options" id="234">
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Event" id="233">
                         <font key="font" metaFont="smallSystemBold"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField verticalHuggingPriority="750" id="148">
-                    <rect key="frame" x="18" y="294" width="54" height="14"/>
+                <popUpButton verticalHuggingPriority="750" id="101">
+                    <rect key="frame" x="86" y="289" width="147" height="22"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="push" title="Events" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="100" id="231">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="smallSystem"/>
+                        <menu key="menu" title="OtherViews" id="98">
+                            <items>
+                                <menuItem title="Events" state="on" id="100"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="setEventType:" target="-2" id="145"/>
+                    </connections>
+                </popUpButton>
+                <textField verticalHuggingPriority="750" id="149">
+                    <rect key="frame" x="18" y="261" width="54" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Event" id="233">
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Options" id="234">
                         <font key="font" metaFont="smallSystemBold"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -53,22 +69,45 @@
                         </binding>
                     </connections>
                 </button>
-                <popUpButton verticalHuggingPriority="750" id="101">
-                    <rect key="frame" x="86" y="289" width="147" height="22"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <popUpButtonCell key="cell" type="push" title="Events" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="100" id="231">
-                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                <textField verticalHuggingPriority="750" id="28">
+                    <rect key="frame" x="144" y="259" width="61" height="19"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" placeholderString="0.0" drawsBackground="YES" id="228">
+                        <numberFormatter key="formatter" formatterBehavior="default10_4" localizesFormat="NO" numberStyle="spellOut" usesGroupingSeparator="NO" roundingMode="ceiling" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="0" minimumFractionDigits="0" maximumFractionDigits="0" id="85">
+                            <nil key="paddingCharacter"/>
+                            <nil key="decimalSeparator"/>
+                            <nil key="groupingSeparator"/>
+                            <nil key="currencyDecimalSeparator"/>
+                            <nil key="plusSign"/>
+                            <nil key="minusSign"/>
+                            <nil key="notANumberSymbol"/>
+                            <nil key="perMillSymbol"/>
+                            <nil key="percentSymbol"/>
+                            <nil key="exponentSymbol"/>
+                            <nil key="positivePrefix"/>
+                            <nil key="positiveSuffix"/>
+                            <nil key="negativePrefix"/>
+                            <nil key="negativeSuffix"/>
+                            <metadata>
+                                <bool key="localizesFormat" value="NO"/>
+                                <real key="inspectorSampleValue" value="1.1000000000000001"/>
+                            </metadata>
+                        </numberFormatter>
                         <font key="font" metaFont="smallSystem"/>
-                        <menu key="menu" title="OtherViews" id="98">
-                            <items>
-                                <menuItem title="Events" state="on" id="100"/>
-                            </items>
-                        </menu>
-                    </popUpButtonCell>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
                     <connections>
-                        <action selector="setEventType:" target="-2" id="145"/>
+                        <action selector="updateTrigger:" target="-2" id="142"/>
+                        <binding destination="153" name="value" keyPath="selection.delayDuration" id="gzA-Su-jyH">
+                            <dictionary key="options">
+                                <bool key="NSConditionallySetsEditable" value="NO"/>
+                                <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                            </dictionary>
+                        </binding>
+                        <binding destination="153" name="enabled" keyPath="selection.eventDelay" id="162"/>
                     </connections>
-                </popUpButton>
+                </textField>
                 <splitView hidden="YES" id="96">
                     <rect key="frame" x="358" y="-48" width="289" height="329"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -195,45 +234,6 @@
                         <binding destination="153" name="value" keyPath="selection.eventOneTime" id="254"/>
                     </connections>
                 </button>
-                <textField verticalHuggingPriority="750" id="28">
-                    <rect key="frame" x="144" y="259" width="61" height="19"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" placeholderString="0.0" drawsBackground="YES" id="228">
-                        <numberFormatter key="formatter" formatterBehavior="default10_4" localizesFormat="NO" numberStyle="spellOut" usesGroupingSeparator="NO" roundingMode="ceiling" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="0" minimumFractionDigits="0" maximumFractionDigits="0" id="85">
-                            <nil key="paddingCharacter"/>
-                            <nil key="decimalSeparator"/>
-                            <nil key="groupingSeparator"/>
-                            <nil key="currencyDecimalSeparator"/>
-                            <nil key="plusSign"/>
-                            <nil key="minusSign"/>
-                            <nil key="notANumberSymbol"/>
-                            <nil key="perMillSymbol"/>
-                            <nil key="percentSymbol"/>
-                            <nil key="exponentSymbol"/>
-                            <nil key="positivePrefix"/>
-                            <nil key="positiveSuffix"/>
-                            <nil key="negativePrefix"/>
-                            <nil key="negativeSuffix"/>
-                            <metadata>
-                                <bool key="localizesFormat" value="NO"/>
-                                <real key="inspectorSampleValue" value="1.1000000000000001"/>
-                            </metadata>
-                        </numberFormatter>
-                        <font key="font" metaFont="smallSystem"/>
-                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                    <connections>
-                        <action selector="updateTrigger:" target="-2" id="142"/>
-                        <binding destination="153" name="value" keyPath="selection.delayDuration" id="gzA-Su-jyH">
-                            <dictionary key="options">
-                                <bool key="NSConditionallySetsEditable" value="NO"/>
-                                <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
-                            </dictionary>
-                        </binding>
-                        <binding destination="153" name="enabled" keyPath="selection.eventDelay" id="162"/>
-                    </connections>
-                </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="ZUf-zG-lV0">
                     <rect key="frame" x="18" y="214" width="167" height="17"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -490,7 +490,7 @@
         </objectController>
         <arrayController id="BQc-VL-AdO" userLabel="matchObjects">
             <connections>
-                <binding destination="-2" name="contentArray" keyPath="matchList" id="j1A-of-j2l">
+                <binding destination="153" name="contentArray" keyPath="selection.matchList" id="BVH-lC-yoI">
                     <dictionary key="options">
                         <string key="NSValueTransformerName">QSObjectValueTransformerET</string>
                     </dictionary>
@@ -499,7 +499,7 @@
         </arrayController>
         <arrayController id="S0j-yo-jAU" userLabel="ignoreObjects">
             <connections>
-                <binding destination="-2" name="contentArray" keyPath="ignoreList" id="wgy-Qy-D3T">
+                <binding destination="153" name="contentArray" keyPath="selection.ignoreList" id="iG0-po-YZI">
                     <dictionary key="options">
                         <string key="NSValueTransformerName">QSObjectValueTransformerET</string>
                     </dictionary>

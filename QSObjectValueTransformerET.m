@@ -20,7 +20,7 @@
     return YES;
 }
 
-- (NSMutableArray *)transformedValue:(NSArray *)objectIDs
+- (NSMutableArray *)transformedValue:(NSMutableArray *)objectIDs
 {
     // turn an array of identifiers into an array of QSObjects
     if ([objectIDs count]) {
@@ -38,7 +38,7 @@
     return nil;
 }
 
-- (NSMutableArray *)reverseTransformedValue:(NSArray *)objects
+- (NSMutableArray *)reverseTransformedValue:(NSMutableArray *)objects
 {
     // turn an array of QSObjects into an array of identifiers
     return [objects arrayByPerformingSelector:@selector(identifier)];
