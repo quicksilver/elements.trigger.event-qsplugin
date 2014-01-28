@@ -44,7 +44,6 @@
     IBOutlet NSTextField *matchLabel;
     IBOutlet NSTextField *ignoreLabel;
 	NSDictionary *triggersByEvent;
-	id eventTriggerObject;
     IBOutlet QSEventTriggerRestrictionController *restrictionController;
 }
 
@@ -56,6 +55,5 @@
 - (IBAction)showRestrictionPicker:(id)sender;
 
 -(void)handleTriggerEvent:(NSString *)event withObject:(id)object;
-- (id)eventTriggerObject;
 - (void)setEventTriggerObject:(id)newEventTriggerObject;
 @end

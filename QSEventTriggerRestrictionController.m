@@ -42,7 +42,6 @@
         [newList addObject:[obj identifier]];
     }
     [self.trigger setObject:[newList allObjects] forKey:listKey];
-    [newList release];
     [[QSTriggerCenter sharedInstance] triggerChanged:self.trigger];
     [self hideMainWindow:self];
 }

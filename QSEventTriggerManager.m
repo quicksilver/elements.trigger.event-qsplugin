@@ -10,13 +10,11 @@
 #define QSTriggerCenter NSClassFromString(@"QSTriggerCenter")
 @implementation QSEventTriggerManager
 
-@synthesize eventTriggerObject;
-
 -(NSString *)name{
 	return @"Event";
 }
 -(NSImage *)image{
-	NSImage *image=[[[QSResourceManager imageNamed:@"General"]copy]autorelease];
+	NSImage *image=[[QSResourceManager imageNamed:@"General"] copy];
 	[image setSize:NSMakeSize(16,16)];
 	return image;
 }
@@ -26,7 +24,7 @@
 + (id)sharedInstance{
     static QSEventTriggerManager *_sharedInstance = nil;
     if (!_sharedInstance){
-        _sharedInstance = [[[self class] allocWithZone:[self zone]] init];
+        _sharedInstance = [[[self class] alloc] init];
     }
     return _sharedInstance;
 }
@@ -144,7 +142,7 @@
     if (!settingsView){
         [NSBundle loadNibNamed:@"QSEventTrigger" owner:self];
 	}
-    return [[settingsView retain] autorelease];
+    return settingsView;
 }
 
 - (IBAction)updateTrigger:(id)sender{
@@ -226,11 +224,11 @@
 
 
 -(id)resolveProxyObject:(id)proxy{
-	return [self eventTriggerObject];
+	return self.eventTriggerObject;
 }
 
 -(NSArray *)typesForProxyObject:(id)proxy{
-	return [[self eventTriggerObject]types];
+	return [self.eventTriggerObject types];
 }
 
 - (NSTimeInterval)cacheTimeForProxy:(id)proxy

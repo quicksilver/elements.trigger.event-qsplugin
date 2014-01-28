@@ -22,23 +22,14 @@
                  NSWorkspaceWillUnmountNotification, @"QSWorkspaceWillUnmountEvent",
                  NSWorkspaceDidUnmountNotification, @"QSWorkspaceDidUnmountEvent",
                  nil];
-        [wsmap retain];
         distmap = [NSDictionary dictionaryWithObjectsAndKeys:
                    @"com.apple.internetconfignotification", @"QSEthernetConfigurationChanged",
                    @"com.apple.screensaver.didstart", @"QSScreensaverStartedEvent",
                    @"com.apple.screensaver.didstop", @"QSScreensaverStoppedEvent",
                    @"com.apple.BezelServices.BMDisplayHWReconfiguredEvent", @"QSExternalDisplayChanged",
                    nil];
-        [distmap retain];
 	}
 	return self;
-}
-
-- (void)dealloc
-{
-    [wsmap release];
-    [distmap release];
-    [super dealloc];
 }
 
 - (void)addObserverForEvent:(NSString *)event trigger:(QSTrigger *)trigger
