@@ -6,6 +6,7 @@
 //
 
 #import "QSEventTriggerManager.h"
+#import "QSEventTriggerRestrictionController.h"
 #define QSTriggerCenter NSClassFromString(@"QSTriggerCenter")
 @implementation QSEventTriggerManager
 
@@ -161,6 +162,15 @@
     BOOL noMatching = ![[event objectForKey:kQSEventTriggerAllowMatching] boolValue];
     [matchLabel setHidden:noMatching];
     [ignoreLabel setHidden:noMatching];
+}
+
+- (IBAction)showRestrictionPicker:(id)sender
+{
+    // are we adding to the "match" or "ignore" list?
+    [restrictionController setRestrictionType:[sender identifier]];
+    // which trigger?
+    [restrictionController setTrigger:[self currentTrigger]];
+    [restrictionController showMainWindow:sender];
 }
 
 - (void)populateInfoFields{

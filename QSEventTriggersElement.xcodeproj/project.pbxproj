@@ -10,6 +10,8 @@
 		8D1AC9700486D14A00FE50C9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD92D38A0106425D02CA0E72 /* Cocoa.framework */; };
 		D416002C1682445D00509469 /* QSEventTrigger.xib in Resources */ = {isa = PBXBuildFile; fileRef = D416002B1682445D00509469 /* QSEventTrigger.xib */; };
 		D44C09911891A2D1009F83AE /* QSObjectValueTransformerET.m in Sources */ = {isa = PBXBuildFile; fileRef = D44C09901891A2D1009F83AE /* QSObjectValueTransformerET.m */; };
+		D44C099A1896F052009F83AE /* QSEventTriggerRestrictionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44C09991896F052009F83AE /* QSEventTriggerRestrictionController.m */; };
+		D44C099D189704EE009F83AE /* QSRestrictionPickerPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D44C099C189704EE009F83AE /* QSRestrictionPickerPanel.m */; };
 		D48A3328185251DF009022DA /* QSInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48A3327185251DF009022DA /* QSInterface.framework */; };
 		E11E3A9807A3841700F55E58 /* QSBasicEventTriggers.h in Resources */ = {isa = PBXBuildFile; fileRef = E11E3A9607A3841700F55E58 /* QSBasicEventTriggers.h */; };
 		E11E3A9907A3841700F55E58 /* QSBasicEventTriggers.m in Sources */ = {isa = PBXBuildFile; fileRef = E11E3A9707A3841700F55E58 /* QSBasicEventTriggers.m */; };
@@ -29,6 +31,10 @@
 		D44124CA1680C4C600793732 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		D44C098F1891A2D1009F83AE /* QSObjectValueTransformerET.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSObjectValueTransformerET.h; sourceTree = "<group>"; };
 		D44C09901891A2D1009F83AE /* QSObjectValueTransformerET.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSObjectValueTransformerET.m; sourceTree = "<group>"; };
+		D44C09981896F052009F83AE /* QSEventTriggerRestrictionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSEventTriggerRestrictionController.h; sourceTree = "<group>"; };
+		D44C09991896F052009F83AE /* QSEventTriggerRestrictionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSEventTriggerRestrictionController.m; sourceTree = "<group>"; };
+		D44C099B189704EE009F83AE /* QSRestrictionPickerPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSRestrictionPickerPanel.h; sourceTree = "<group>"; };
+		D44C099C189704EE009F83AE /* QSRestrictionPickerPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSRestrictionPickerPanel.m; sourceTree = "<group>"; };
 		D48A3327185251DF009022DA /* QSInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QSInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD92D38A0106425D02CA0E72 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		E11E3A9607A3841700F55E58 /* QSBasicEventTriggers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSBasicEventTriggers.h; sourceTree = "<group>"; };
@@ -97,6 +103,10 @@
 				E17CD95E07A33F2B006BAEA7 /* QSEventTriggerManager.m */,
 				D44C098F1891A2D1009F83AE /* QSObjectValueTransformerET.h */,
 				D44C09901891A2D1009F83AE /* QSObjectValueTransformerET.m */,
+				D44C09981896F052009F83AE /* QSEventTriggerRestrictionController.h */,
+				D44C09991896F052009F83AE /* QSEventTriggerRestrictionController.m */,
+				D44C099B189704EE009F83AE /* QSRestrictionPickerPanel.h */,
+				D44C099C189704EE009F83AE /* QSRestrictionPickerPanel.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -196,9 +206,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D44C099A1896F052009F83AE /* QSEventTriggerRestrictionController.m in Sources */,
 				E17CD96007A33F2B006BAEA7 /* QSEventTriggerManager.m in Sources */,
 				D44C09911891A2D1009F83AE /* QSObjectValueTransformerET.m in Sources */,
 				E11E3A9907A3841700F55E58 /* QSBasicEventTriggers.m in Sources */,
+				D44C099D189704EE009F83AE /* QSRestrictionPickerPanel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

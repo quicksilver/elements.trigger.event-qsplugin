@@ -10,6 +10,7 @@
                 <outlet property="eventPopUp" destination="101" id="104"/>
                 <outlet property="ignoreLabel" destination="w4R-Dc-iFV" id="puf-um-FyF"/>
                 <outlet property="matchLabel" destination="ZUf-zG-lV0" id="Kky-Ci-SJq"/>
+                <outlet property="restrictionController" destination="pAQ-KI-oVC" id="w9I-s6-WRp"/>
                 <outlet property="settingsView" destination="5" id="103"/>
             </connections>
         </customObject>
@@ -243,7 +244,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button id="Ngw-bp-OQF">
+                <button identifier="addMatch" id="Ngw-bp-OQF">
                     <rect key="frame" x="191" y="212" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="qTC-D1-dxd">
@@ -251,6 +252,7 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
+                        <action selector="showRestrictionPicker:" target="-2" id="zbJ-pP-GYL"/>
                         <binding destination="-2" name="hidden" keyPath="matchLabel.hidden" id="0uf-cI-QBI"/>
                     </connections>
                 </button>
@@ -361,7 +363,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button id="Tiw-dN-6ET">
+                <button identifier="addIgnore" id="Tiw-dN-6ET">
                     <rect key="frame" x="191" y="101" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="2vv-uq-VC6">
@@ -369,6 +371,7 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
+                        <action selector="showRestrictionPicker:" target="-2" id="6Ef-1m-ew4"/>
                         <binding destination="-2" name="hidden" keyPath="ignoreLabel.hidden" id="ZVm-Be-y4O"/>
                     </connections>
                 </button>
@@ -494,6 +497,32 @@
                 <binding destination="153" name="contentArray" keyPath="selection.ignoreList" id="hS1-Za-txr"/>
             </connections>
         </arrayController>
+        <window title="Select Item(s)" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="wDx-pk-dHB" customClass="QSRestrictionPickerPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" utility="YES"/>
+            <rect key="contentRect" x="666" y="536" width="320" height="64"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <view key="contentView" id="Nas-er-hx2">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <customView id="03c-Rt-ZEC" customClass="QSCollectingSearchObjectView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </customView>
+                </subviews>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="pAQ-KI-oVC" id="B4v-sm-VQi"/>
+                <outlet property="initialFirstResponder" destination="03c-Rt-ZEC" id="m5z-up-pM9"/>
+                <outlet property="searchObjView" destination="03c-Rt-ZEC" id="dSO-vH-dY6"/>
+            </connections>
+        </window>
+        <customObject id="pAQ-KI-oVC" customClass="QSEventTriggerRestrictionController">
+            <connections>
+                <outlet property="dSelector" destination="03c-Rt-ZEC" id="zNB-FL-P2i"/>
+                <outlet property="window" destination="wDx-pk-dHB" id="CLa-70-ruc"/>
+            </connections>
+        </customObject>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>

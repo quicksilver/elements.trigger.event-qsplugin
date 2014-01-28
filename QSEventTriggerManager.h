@@ -37,6 +37,7 @@
 
 @end
 
+@class QSEventTriggerRestrictionController;
 
 @interface QSEventTriggerManager : QSTriggerManager {
 	IBOutlet NSPopUpButton *eventPopUp;
@@ -44,6 +45,7 @@
     IBOutlet NSTextField *ignoreLabel;
 	NSDictionary *triggersByEvent;
 	id eventTriggerObject;
+    IBOutlet QSEventTriggerRestrictionController *restrictionController;
 }
 
 @property (retain) id eventTriggerObject;
@@ -51,6 +53,7 @@
 + (id)sharedInstance;
 - (IBAction)updateTrigger:(id)sender;
 - (IBAction)setEventType:(id)sender;
+- (IBAction)showRestrictionPicker:(id)sender;
 
 -(void)handleTriggerEvent:(NSString *)event withObject:(id)object;
 - (id)eventTriggerObject;
