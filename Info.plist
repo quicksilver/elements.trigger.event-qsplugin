@@ -56,7 +56,7 @@
 &lt;li&gt;Fast Login&lt;/li&gt;
 &lt;li&gt;Fast Logout&lt;/li&gt;
 &lt;li&gt;Ethernet Changed&lt;/li&gt;
-&lt;li&gt;Disk Inserted&lt;/li&gt;
+&lt;li&gt;Disk Mounted&lt;/li&gt;
 &lt;li&gt;Disk Ejected&lt;/li&gt;
 &lt;li&gt;Disk Will Eject&lt;/li&gt;
 &lt;li&gt;Screen Saver Started&lt;/li&gt;
@@ -108,7 +108,7 @@
 &lt;td&gt;The application that quit&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Disk Inserted&lt;/td&gt;
+&lt;td&gt;Disk Mounted&lt;/td&gt;
 &lt;td&gt;The disk that was mounted&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -261,7 +261,7 @@
 				<key>icon</key>
 				<string>DriveIcon</string>
 				<key>name</key>
-				<string>Disk Inserted</string>
+				<string>Disk Mounted</string>
 				<key>provider</key>
 				<string>QSBasicEventTriggers</string>
 				<key>type</key>

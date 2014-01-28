@@ -21,7 +21,7 @@ You can assign triggers for the following events:
   * Fast Login
   * Fast Logout
   * Ethernet Changed
-  * Disk Inserted
+  * Disk Mounted
   * Disk Ejected
   * Disk Will Eject
   * Screen Saver Started
@@ -76,6 +76,6 @@ For the events defined by this plug-in, the following objects will be available.
   -------------------- | -----------------------------
   Application Launched | The application that launched
   Application Quit     | The application that quit
-  Disk Inserted        | The disk that was mounted
+  Disk Mounted         | The disk that was mounted
   Disk Ejected         | The disk that was ejected
   Disk Will Eject      | The disk that will eject
