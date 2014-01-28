@@ -17,9 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1.0</string>
+	<string>2.0.0</string>
 	<key>CFBundleVersion</key>
-	<string>71</string>
+	<string>73</string>
 	<key>NSPrincipalClass</key>
 	<string>QSEventTriggersPlugIn</string>
 	<key>QSPlugIn</key>
@@ -177,17 +177,6 @@
 				<key>type</key>
 				<string>Application</string>
 			</dict>
-			<key>QSExternalDisplayChanged</key>
-			<dict>
-				<key>icon</key>
-				<string>Computer</string>
-				<key>name</key>
-				<string>External Display Changed</string>
-				<key>provider</key>
-				<string>QSBasicEventTriggers</string>
-				<key>type</key>
-				<string>Computer</string>
-			</dict>
 			<key>QSEthernetConfigurationChanged</key>
 			<dict>
 				<key>icon</key>
@@ -196,6 +185,17 @@
 				<string>Ethernet Changed</string>
 				<key>provider</key>
 				<string>QSProcessMonitor</string>
+				<key>type</key>
+				<string>Computer</string>
+			</dict>
+			<key>QSExternalDisplayChanged</key>
+			<dict>
+				<key>icon</key>
+				<string>Computer</string>
+				<key>name</key>
+				<string>External Display Changed</string>
+				<key>provider</key>
+				<string>QSBasicEventTriggers</string>
 				<key>type</key>
 				<string>Computer</string>
 			</dict>
@@ -354,6 +354,11 @@
 			<key>QSEventTrigger</key>
 			<string>QSEventTriggerManager</string>
 		</dict>
+	</dict>
+	<key>QSRequirements</key>
+	<dict>
+		<key>version</key>
+		<string>4008</string>
 	</dict>
 </dict>
 </plist>
