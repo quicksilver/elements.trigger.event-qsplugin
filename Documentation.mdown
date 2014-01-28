@@ -27,8 +27,6 @@ You can assign triggers for the following events:
   * Screen Saver Started
   * Screen Saver Stopped
 
-Other plug-ins may define additional events.
-
 ## Trigger Settings ##
 
 Event
@@ -43,3 +41,41 @@ Ignore Repeats
     If you enable this setting with a delay of *n* seconds, when multiple events occur within *n* seconds of each other, the trigger will only run once (*n* seconds after the last notification is sent).
 
     It might take some experimentation to get this right. A tip is to initially set the trigger up to do something obvious, like show some text using the Large Type action or append some text to a file, and see how many times it runs.
+
+### Match & Ignore Items ###
+
+By default, an event trigger will run for **every occurrence** of the event.
+
+For certain types of events, you can control whether or not the trigger runs depending on the object the event was related to. (See below for more on the [Event Trigger Object](#event_trigger_object).) For example, you might want to run a backup script when a particular disk is mounted, but not every time *any* disk is mounted. These restrictions can be set up by adding objects to the match/ignore lists.
+
+The interface for selecting items is a simplified version of the main Quicksilver interface. Just find the item you want to add and hit ↩. Multiple items can be added at once using the comma trick.
+
+The catalog is searched by default, but you can reach items outside the catalog as well by browsing with → or /.
+
+## Plug-in Events ##
+
+Other plug-ins may define additional events. These are generally things that happen within Quicksilver, rather than on the system in general.
+
+Most of these events pass along an object that can be used in the event trigger (with the "Event Trigger Object" proxy).
+
+## Event Trigger Object ##
+
+This plug-in adds a proxy object called "Event Trigger Object" to the catalog. It's only useful within the context of an event trigger.
+
+When an event happens, it can pass something along. You can then use an event trigger to run an action on that thing. For example, the iTunes plug-in defines an "iTunes Track Changed" event. When this happens, the Event Trigger Object will refer to the track that just started playing. So, for example, you could create a trigger like
+
+    Event Trigger Object ⇥ Add to Playlist… ⇥ Just Played
+
+To see what the Event Trigger Object refers to for a particular event, check the documentation in the plug-in that defines the event.
+
+### Known Event Trigger Objects ###
+
+For the events defined by this plug-in, the following objects will be available.
+
+  Event                | Event Trigger Object
+  -------------------- | -----------------------------
+  Application Launched | The application that launched
+  Application Quit     | The application that quit
+  Disk Inserted        | The disk that was mounted
+  Disk Ejected         | The disk that was ejected
+  Disk Will Eject      | The disk that will eject
