@@ -35,8 +35,8 @@
                    nil];
         [self discoverAudioDeviceProperties];
         _listenerBlocks = [[NSMutableDictionary alloc] init];
-        [self defineListenerBlockFor:kQSHeadphonesActiveEvent deviceID:'hdpn' message:@"Headphones Active"];
-        [self defineListenerBlockFor:kQSInternalSpeakersActiveEvent deviceID:'ispk' message:@"Internal Speakers Active"];
+        [self defineListenerBlockFor:kQSHeadphonesActiveEvent deviceID:'hdpn'];
+        [self defineListenerBlockFor:kQSInternalSpeakersActiveEvent deviceID:'ispk'];
 	}
 	return self;
 }
@@ -113,15 +113,14 @@
 	[[QSEventTriggerManager sharedInstance] handleTriggerEvent:name withObject:nil];
 }
 
-- (void)defineListenerBlockFor:(NSString *)audioDeviceEvent deviceID:(UInt32)targetSourceID message:(NSString *)message
+- (void)defineListenerBlockFor:(NSString *)audioDeviceEvent deviceID:(UInt32)targetSourceID
 {
     AudioObjectPropertyListenerBlock listenerBlock = ^(UInt32 inNumberAddresses, const AudioObjectPropertyAddress *inAddresses) {
         UInt32 bDataSourceId = 0;
         UInt32 bDataSourceIdSize = sizeof(UInt32);
         AudioObjectGetPropertyData(defaultDevice, inAddresses, 0, NULL, &bDataSourceIdSize, &bDataSourceId);
         if (bDataSourceId == targetSourceID) {
-            QSObject *argument = [QSObject objectWithString:message];
-            [[QSEventTriggerManager sharedInstance] handleTriggerEvent:audioDeviceEvent withObject:argument];
+            [[QSEventTriggerManager sharedInstance] handleTriggerEvent:audioDeviceEvent withObject:nil];
         }
     };
     
