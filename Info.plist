@@ -122,7 +122,9 @@
 &lt;td&gt;The disk that will eject&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;</string>
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;This plug-in uses icons from the &lt;a href="http://openiconlibrary.sourceforge.net/"&gt;Open Icon Library&lt;/a&gt;.&lt;/p&gt;</string>
 		<key>icon</key>
 		<string>General</string>
 	</dict>
@@ -193,7 +195,7 @@
 			<key>QSExternalDisplayChanged</key>
 			<dict>
 				<key>icon</key>
-				<string>Computer</string>
+				<string>DisplayDevice</string>
 				<key>name</key>
 				<string>External Display Changed</string>
 				<key>provider</key>
@@ -344,7 +346,7 @@
 			<key>QSWorkspaceWillPowerOffEvent</key>
 			<dict>
 				<key>icon</key>
-				<string>Computer</string>
+				<string>SystemShutdown</string>
 				<key>name</key>
 				<string>Computer Will Shut Down</string>
 				<key>provider</key>
@@ -355,7 +357,7 @@
 			<key>QSWorkspaceWillSleepEvent</key>
 			<dict>
 				<key>icon</key>
-				<string>Computer</string>
+				<string>SystemSleep</string>
 				<key>name</key>
 				<string>Computer Will Sleep</string>
 				<key>provider</key>
@@ -390,6 +392,13 @@
 	</dict>
 	<key>QSResourceAdditions</key>
 	<dict>
+		<key>DisplayDevice</key>
+		<dict>
+			<key>bundle</key>
+			<string>com.blacktree.Quicksilver.QSEventTriggersPlugIn</string>
+			<key>resource</key>
+			<string>display.png</string>
+		</dict>
 		<key>Ethernet</key>
 		<dict>
 			<key>bundle</key>
@@ -410,6 +419,20 @@
 			<string>com.blacktree.Quicksilver.QSEventTriggersPlugIn</string>
 			<key>resource</key>
 			<string>internal-speaker.png</string>
+		</dict>
+		<key>SystemShutdown</key>
+		<dict>
+			<key>bundle</key>
+			<string>com.blacktree.Quicksilver.QSEventTriggersPlugIn</string>
+			<key>resource</key>
+			<string>system-shutdown.png</string>
+		</dict>
+		<key>SystemSleep</key>
+		<dict>
+			<key>bundle</key>
+			<string>com.blacktree.Quicksilver.QSEventTriggersPlugIn</string>
+			<key>resource</key>
+			<string>system-sleep.png</string>
 		</dict>
 	</dict>
 </dict>

@@ -12,6 +12,9 @@
 		D42C72A01899864D0056BC93 /* headphones.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C729F1899864D0056BC93 /* headphones.png */; };
 		D42C72A4189987860056BC93 /* internal-speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C72A3189987860056BC93 /* internal-speaker.png */; };
 		D42C72A818998EBF0056BC93 /* ethernet-port.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C72A718998EBF0056BC93 /* ethernet-port.png */; };
+		D42C72AC1899A13A0056BC93 /* display.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C72A91899A13A0056BC93 /* display.png */; };
+		D42C72AD1899A13A0056BC93 /* system-shutdown.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C72AA1899A13A0056BC93 /* system-shutdown.png */; };
+		D42C72AE1899A13A0056BC93 /* system-sleep.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C72AB1899A13A0056BC93 /* system-sleep.png */; };
 		D44C09911891A2D1009F83AE /* QSObjectValueTransformerET.m in Sources */ = {isa = PBXBuildFile; fileRef = D44C09901891A2D1009F83AE /* QSObjectValueTransformerET.m */; };
 		D44C099A1896F052009F83AE /* QSEventTriggerRestrictionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44C09991896F052009F83AE /* QSEventTriggerRestrictionController.m */; };
 		D44C099D189704EE009F83AE /* QSRestrictionPickerPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D44C099C189704EE009F83AE /* QSRestrictionPickerPanel.m */; };
@@ -29,6 +32,9 @@
 		D42C729F1899864D0056BC93 /* headphones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = headphones.png; path = Resources/headphones.png; sourceTree = "<group>"; };
 		D42C72A3189987860056BC93 /* internal-speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "internal-speaker.png"; path = "Resources/internal-speaker.png"; sourceTree = "<group>"; };
 		D42C72A718998EBF0056BC93 /* ethernet-port.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ethernet-port.png"; path = "Resources/ethernet-port.png"; sourceTree = "<group>"; };
+		D42C72A91899A13A0056BC93 /* display.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = display.png; path = Resources/display.png; sourceTree = "<group>"; };
+		D42C72AA1899A13A0056BC93 /* system-shutdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "system-shutdown.png"; path = "Resources/system-shutdown.png"; sourceTree = "<group>"; };
+		D42C72AB1899A13A0056BC93 /* system-sleep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "system-sleep.png"; path = "Resources/system-sleep.png"; sourceTree = "<group>"; };
 		D44124C51680C4C600793732 /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		D44124C61680C4C600793732 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		D44124C71680C4C600793732 /* Developer.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Developer.xcconfig; sourceTree = "<group>"; };
@@ -82,6 +88,9 @@
 				D42C729F1899864D0056BC93 /* headphones.png */,
 				D42C72A3189987860056BC93 /* internal-speaker.png */,
 				D42C72A718998EBF0056BC93 /* ethernet-port.png */,
+				D42C72A91899A13A0056BC93 /* display.png */,
+				D42C72AA1899A13A0056BC93 /* system-shutdown.png */,
+				D42C72AB1899A13A0056BC93 /* system-sleep.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -186,8 +195,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D42C72A01899864D0056BC93 /* headphones.png in Resources */,
+				D42C72AC1899A13A0056BC93 /* display.png in Resources */,
 				E17CDCF807A36941006BAEA7 /* QSEventTriggerManager.h in Resources */,
 				D42C72A4189987860056BC93 /* internal-speaker.png in Resources */,
+				D42C72AD1899A13A0056BC93 /* system-shutdown.png in Resources */,
+				D42C72AE1899A13A0056BC93 /* system-sleep.png in Resources */,
 				E11E3A9807A3841700F55E58 /* QSBasicEventTriggers.h in Resources */,
 				D416002C1682445D00509469 /* QSEventTrigger.xib in Resources */,
 				D42C72A818998EBF0056BC93 /* ethernet-port.png in Resources */,
