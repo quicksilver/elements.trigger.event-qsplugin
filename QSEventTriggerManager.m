@@ -107,6 +107,12 @@
 
 
 -(void)handleTriggerEvent:(NSString *)event withObject:(id)object{
+    if (!object) {
+        // no defined Event Trigger Object, use the event name as a string
+        NSDictionary *eventInfo = [[QSReg tableNamed:kQSTriggerEvents] objectForKey:event];
+        NSString *eventName = [eventInfo objectForKey:kQSEventTriggerName];
+        object = [QSObject objectWithString:eventName];
+    }
 	//if (VERBOSE)	NSLog(@"Event:%@\r%@",event, object);
 	[self setEventTriggerObject:object];
     NSString *objectID = [object respondsToSelector:@selector(identifier)] ? [object identifier] : @"";
