@@ -26,6 +26,8 @@ You can assign triggers for the following events:
   * Disk Will Eject
   * Screen Saver Started
   * Screen Saver Stopped
+  * Switched to Headphones
+  * Switched to Internal Speakers
 
 ## Trigger Settings ##
 
@@ -72,10 +74,12 @@ To see what the Event Trigger Object refers to for a particular event, check the
 
 For the events defined by this plug-in, the following objects will be available.
 
-  Event                | Event Trigger Object
-  -------------------- | -----------------------------
-  Application Launched | The application that launched
-  Application Quit     | The application that quit
-  Disk Mounted         | The disk that was mounted
-  Disk Ejected         | The disk that was ejected
-  Disk Will Eject      | The disk that will eject
+  Event                         | Event Trigger Object
+  ----------------------------- | -----------------------------------
+  Application Launched          | The application that launched
+  Application Quit              | The application that quit
+  Disk Mounted                  | The disk that was mounted
+  Disk Ejected                  | The disk that was ejected
+  Disk Will Eject               | The disk that will eject
+  Switched to Headphones        | The text "Headphones Active"
+  Switched to Internal Speakers | The text "Internal Speakers Active"

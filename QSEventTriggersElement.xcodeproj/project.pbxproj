@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8D1AC9700486D14A00FE50C9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD92D38A0106425D02CA0E72 /* Cocoa.framework */; };
 		D416002C1682445D00509469 /* QSEventTrigger.xib in Resources */ = {isa = PBXBuildFile; fileRef = D416002B1682445D00509469 /* QSEventTrigger.xib */; };
+		D42C72A01899864D0056BC93 /* headphones.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C729F1899864D0056BC93 /* headphones.png */; };
+		D42C72A4189987860056BC93 /* internal-speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C72A3189987860056BC93 /* internal-speaker.png */; };
 		D44C09911891A2D1009F83AE /* QSObjectValueTransformerET.m in Sources */ = {isa = PBXBuildFile; fileRef = D44C09901891A2D1009F83AE /* QSObjectValueTransformerET.m */; };
 		D44C099A1896F052009F83AE /* QSEventTriggerRestrictionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44C09991896F052009F83AE /* QSEventTriggerRestrictionController.m */; };
 		D44C099D189704EE009F83AE /* QSRestrictionPickerPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D44C099C189704EE009F83AE /* QSRestrictionPickerPanel.m */; };
@@ -23,6 +25,8 @@
 		8D1AC9730486D14A00FE50C9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1AC9740486D14A00FE50C9 /* Event Triggers.qsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Event Triggers.qsplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D416002B1682445D00509469 /* QSEventTrigger.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QSEventTrigger.xib; sourceTree = "<group>"; };
+		D42C729F1899864D0056BC93 /* headphones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = headphones.png; path = Resources/headphones.png; sourceTree = "<group>"; };
+		D42C72A3189987860056BC93 /* internal-speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "internal-speaker.png"; path = "Resources/internal-speaker.png"; sourceTree = "<group>"; };
 		D44124C51680C4C600793732 /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		D44124C61680C4C600793732 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		D44124C71680C4C600793732 /* Developer.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Developer.xcconfig; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 			children = (
 				D416002B1682445D00509469 /* QSEventTrigger.xib */,
 				8D1AC9730486D14A00FE50C9 /* Info.plist */,
+				D42C729F1899864D0056BC93 /* headphones.png */,
+				D42C72A3189987860056BC93 /* internal-speaker.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -176,7 +182,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D42C72A01899864D0056BC93 /* headphones.png in Resources */,
 				E17CDCF807A36941006BAEA7 /* QSEventTriggerManager.h in Resources */,
+				D42C72A4189987860056BC93 /* internal-speaker.png in Resources */,
 				E11E3A9807A3841700F55E58 /* QSBasicEventTriggers.h in Resources */,
 				D416002C1682445D00509469 /* QSEventTrigger.xib in Resources */,
 			);

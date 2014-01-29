@@ -6,8 +6,13 @@
 //
 
 #import "QSBasicEventTriggers.h"
-
 #import "QSEventTriggerManager.h"
+
+#define kQSHeadphonesActiveEvent @"QSHeadphonesActiveEvent"
+#define kQSInternalSpeakersActiveEvent @"QSInternalSpeakersActiveEvent"
+#define kQSAirplayActiveEvent @"QSAirplayActiveEvent"
+#define kQSOpticalActiveEvent @"QSOpticalActiveEvent"
+
 @implementation QSBasicEventTriggers
 -(id)init{
 	if (self=[super init]){
@@ -28,8 +33,29 @@
                    @"com.apple.screensaver.didstop", @"QSScreensaverStoppedEvent",
                    @"com.apple.BezelServices.BMDisplayHWReconfiguredEvent", @"QSExternalDisplayChanged",
                    nil];
+        [self discoverAudioDeviceProperties];
+        _listenerBlocks = [[NSMutableDictionary alloc] init];
+        [self defineListenerBlockFor:kQSHeadphonesActiveEvent deviceID:'hdpn' message:@"Headphones Active"];
+        [self defineListenerBlockFor:kQSInternalSpeakersActiveEvent deviceID:'ispk' message:@"Internal Speakers Active"];
 	}
 	return self;
+}
+
+- (void)discoverAudioDeviceProperties
+{
+    defaultDevice = 0;
+    UInt32 defaultSize = sizeof(AudioDeviceID);
+    
+    const AudioObjectPropertyAddress defaultAddr = {
+        kAudioHardwarePropertyDefaultOutputDevice,
+        kAudioObjectPropertyScopeGlobal,
+        kAudioObjectPropertyElementMaster
+    };
+    AudioObjectGetPropertyData(kAudioObjectSystemObject, &defaultAddr, 0, NULL, &defaultSize, &defaultDevice);
+    
+    sourceAddr.mSelector = kAudioDevicePropertyDataSource;
+    sourceAddr.mScope = kAudioDevicePropertyScopeOutput;
+    sourceAddr.mElement = kAudioObjectPropertyElementMaster;
 }
 
 - (void)addObserverForEvent:(NSString *)event trigger:(QSTrigger *)trigger
@@ -42,6 +68,9 @@
         NSDistributedNotificationCenter *dc = [NSDistributedNotificationCenter defaultCenter];
         [dc addObserver:self selector:@selector(handleSystemNotification:) name:[distmap objectForKey:event] object:nil];
     }
+    if ([self.listenerBlocks objectForKey:event]) {
+        [self monitorAudioOutputDeviceFor:event];
+    }
 }
 
 - (void)removeObserverForEvent:(NSString *)event trigger:(QSTrigger *)trigger
@@ -53,6 +82,9 @@
     if ([distmap objectForKey:event]) {
         NSDistributedNotificationCenter *dc = [NSDistributedNotificationCenter defaultCenter];
         [dc removeObserver:self name:[distmap objectForKey:event] object:nil];
+    }
+    if ([self.listenerBlocks objectForKey:event]) {
+        [self ignoreAudioOutputDeviceFor:event];
     }
 }
 
@@ -79,6 +111,35 @@
 		return;
 	}
 	[[QSEventTriggerManager sharedInstance] handleTriggerEvent:name withObject:nil];
+}
+
+- (void)defineListenerBlockFor:(NSString *)audioDeviceEvent deviceID:(UInt32)targetSourceID message:(NSString *)message
+{
+    AudioObjectPropertyListenerBlock listenerBlock = ^(UInt32 inNumberAddresses, const AudioObjectPropertyAddress *inAddresses) {
+        UInt32 bDataSourceId = 0;
+        UInt32 bDataSourceIdSize = sizeof(UInt32);
+        AudioObjectGetPropertyData(defaultDevice, inAddresses, 0, NULL, &bDataSourceIdSize, &bDataSourceId);
+        if (bDataSourceId == targetSourceID) {
+            QSObject *argument = [QSObject objectWithString:message];
+            [[QSEventTriggerManager sharedInstance] handleTriggerEvent:audioDeviceEvent withObject:argument];
+        }
+    };
+    
+    [self.listenerBlocks setObject:listenerBlock forKey:audioDeviceEvent];
+}
+
+- (void)monitorAudioOutputDeviceFor:(NSString *)audioDeviceEvent
+{
+    AudioObjectPropertyListenerBlock listenerBlock = [self.listenerBlocks objectForKey:audioDeviceEvent];
+    
+    AudioObjectAddPropertyListenerBlock(defaultDevice, &sourceAddr, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), listenerBlock);
+}
+
+- (void)ignoreAudioOutputDeviceFor:(NSString *)audioDeviceEvent
+{
+    AudioObjectPropertyListenerBlock listenerBlock = [self.listenerBlocks objectForKey:audioDeviceEvent];
+    
+    AudioObjectRemovePropertyListenerBlock(defaultDevice, &sourceAddr, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), listenerBlock);
 }
 
 - (NSString *)nameForEvent:(NSString *)inName

@@ -61,6 +61,8 @@
 &lt;li&gt;Disk Will Eject&lt;/li&gt;
 &lt;li&gt;Screen Saver Started&lt;/li&gt;
 &lt;li&gt;Screen Saver Stopped&lt;/li&gt;
+&lt;li&gt;Switched to Headphones&lt;/li&gt;
+&lt;li&gt;Switched to Internal Speakers&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Trigger Settings&lt;/h2&gt;
 &lt;dl&gt;
@@ -118,6 +120,14 @@
 &lt;tr&gt;
 &lt;td&gt;Disk Will Eject&lt;/td&gt;
 &lt;td&gt;The disk that will eject&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Switched to Headphones&lt;/td&gt;
+&lt;td&gt;The text "Headphones Active"&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Switched to Internal Speakers&lt;/td&gt;
+&lt;td&gt;The text "Internal Speakers Active"&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;</string>
@@ -198,6 +208,32 @@
 				<string>QSBasicEventTriggers</string>
 				<key>type</key>
 				<string>Computer</string>
+			</dict>
+			<key>QSHeadphonesActiveEvent</key>
+			<dict>
+				<key>allowMatching</key>
+				<false/>
+				<key>icon</key>
+				<string>Headphones</string>
+				<key>name</key>
+				<string>Switched to Headphones</string>
+				<key>provider</key>
+				<string>QSBasicEventTriggers</string>
+				<key>type</key>
+				<string>Hardware</string>
+			</dict>
+			<key>QSInternalSpeakersActiveEvent</key>
+			<dict>
+				<key>allowMatching</key>
+				<false/>
+				<key>icon</key>
+				<string>InternalSpeakers</string>
+				<key>name</key>
+				<string>Switched to Internal Speakers</string>
+				<key>provider</key>
+				<string>QSBasicEventTriggers</string>
+				<key>type</key>
+				<string>Hardware</string>
 			</dict>
 			<key>QSQuicksilverLaunchedAtLoginEvent</key>
 			<dict>
@@ -359,6 +395,23 @@
 	<dict>
 		<key>version</key>
 		<string>4008</string>
+	</dict>
+	<key>QSResourceAdditions</key>
+	<dict>
+		<key>Headphones</key>
+		<dict>
+			<key>bundle</key>
+			<string>com.blacktree.Quicksilver.QSEventTriggersPlugIn</string>
+			<key>resource</key>
+			<string>headphones.png</string>
+		</dict>
+		<key>InternalSpeakers</key>
+		<dict>
+			<key>bundle</key>
+			<string>com.blacktree.Quicksilver.QSEventTriggersPlugIn</string>
+			<key>resource</key>
+			<string>internal-speaker.png</string>
+		</dict>
 	</dict>
 </dict>
 </plist>
