@@ -90,7 +90,7 @@
 &lt;p&gt;When an event happens, it can pass something along. You can then use an event trigger to run an action on that thing. For example, the iTunes plug-in defines an "iTunes Track Changed" event. When this happens, the Event Trigger Object will refer to the track that just started playing. So, for example, you could create a trigger like&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Event Trigger Object ⇥ Add to Playlist… ⇥ Just Played
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;To see what the Event Trigger Object refers to for a particular event, check the documentation in the plug-in that defines the event.&lt;/p&gt;
+&lt;p&gt;To see what the Event Trigger Object refers to for a particular event, check the documentation in the plug-in that defines the event. For events that don't explicitly provide an object, the Event Trigger Object will just be text containing the event's name.&lt;/p&gt;
 &lt;h3&gt;Known Event Trigger Objects&lt;/h3&gt;
 &lt;p&gt;For the events defined by this plug-in, the following objects will be available.&lt;/p&gt;
 &lt;table&gt;
@@ -120,14 +120,6 @@
 &lt;tr&gt;
 &lt;td&gt;Disk Will Eject&lt;/td&gt;
 &lt;td&gt;The disk that will eject&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Switched to Headphones&lt;/td&gt;
-&lt;td&gt;The text "Headphones Active"&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Switched to Internal Speakers&lt;/td&gt;
-&lt;td&gt;The text "Internal Speakers Active"&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;</string>

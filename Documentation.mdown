@@ -68,7 +68,7 @@ When an event happens, it can pass something along. You can then use an event tr
 
     Event Trigger Object ⇥ Add to Playlist… ⇥ Just Played
 
-To see what the Event Trigger Object refers to for a particular event, check the documentation in the plug-in that defines the event.
+To see what the Event Trigger Object refers to for a particular event, check the documentation in the plug-in that defines the event. For events that don't explicitly provide an object, the Event Trigger Object will just be text containing the event's name.
 
 ### Known Event Trigger Objects ###
 
@@ -81,5 +81,3 @@ For the events defined by this plug-in, the following objects will be available.
   Disk Mounted                  | The disk that was mounted
   Disk Ejected                  | The disk that was ejected
   Disk Will Eject               | The disk that will eject
-  Switched to Headphones        | The text "Headphones Active"
-  Switched to Internal Speakers | The text "Internal Speakers Active"
