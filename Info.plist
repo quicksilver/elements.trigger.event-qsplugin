@@ -190,13 +190,13 @@
 			<key>QSEthernetConfigurationChanged</key>
 			<dict>
 				<key>icon</key>
-				<string>GenericNetworkIcon</string>
+				<string>Ethernet</string>
 				<key>name</key>
 				<string>Ethernet Changed</string>
 				<key>provider</key>
-				<string>QSProcessMonitor</string>
+				<string>QSBasicEventTriggers</string>
 				<key>type</key>
-				<string>Computer</string>
+				<string>Hardware</string>
 			</dict>
 			<key>QSExternalDisplayChanged</key>
 			<dict>
@@ -398,6 +398,13 @@
 	</dict>
 	<key>QSResourceAdditions</key>
 	<dict>
+		<key>Ethernet</key>
+		<dict>
+			<key>bundle</key>
+			<string>com.blacktree.Quicksilver.QSEventTriggersPlugIn</string>
+			<key>resource</key>
+			<string>ethernet-port.png</string>
+		</dict>
 		<key>Headphones</key>
 		<dict>
 			<key>bundle</key>
