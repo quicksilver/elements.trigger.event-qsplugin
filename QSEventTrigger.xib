@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4511" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment version="1070" defaultVersion="1070" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4511"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="QSEventTriggerManager">
@@ -10,7 +10,6 @@
                 <outlet property="eventPopUp" destination="101" id="104"/>
                 <outlet property="ignoreLabel" destination="w4R-Dc-iFV" id="puf-um-FyF"/>
                 <outlet property="matchLabel" destination="ZUf-zG-lV0" id="Kky-Ci-SJq"/>
-                <outlet property="restrictionController" destination="pAQ-KI-oVC" id="w9I-s6-WRp"/>
                 <outlet property="settingsView" destination="5" id="103"/>
             </connections>
         </customObject>
@@ -158,11 +157,11 @@
                                 </subviews>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </clipView>
-                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" id="243">
+                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="243">
                                 <rect key="frame" x="-100" y="-100" width="272" height="15"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
-                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" id="245">
+                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="245">
                                 <rect key="frame" x="-30" y="17" width="15" height="220"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
@@ -203,11 +202,11 @@
                                 </subviews>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </clipView>
-                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" id="246">
+                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="246">
                                 <rect key="frame" x="-100" y="-100" width="272" height="15"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
-                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" id="248">
+                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="248">
                                 <rect key="frame" x="-30" y="17" width="15" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
@@ -244,18 +243,6 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button identifier="addMatch" id="Ngw-bp-OQF">
-                    <rect key="frame" x="191" y="212" width="20" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="qTC-D1-dxd">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="showRestrictionPicker:" target="-2" id="zbJ-pP-GYL"/>
-                        <binding destination="-2" name="hidden" keyPath="matchLabel.hidden" id="0uf-cI-QBI"/>
-                    </connections>
-                </button>
                 <button id="HIb-NC-77o">
                     <rect key="frame" x="210" y="212" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
@@ -276,7 +263,7 @@
                         <rect key="frame" x="1" y="1" width="207" height="76"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" viewBased="YES" id="RvX-cH-7gH">
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" viewBased="YES" id="RvX-cH-7gH" customClass="QSObjectDraggedTableView">
                                 <rect key="frame" x="0.0" y="0.0" width="207" height="76"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
@@ -332,21 +319,18 @@
                                 </tableColumns>
                                 <connections>
                                     <action selector="updateTrigger:" target="-2" id="tdN-eI-b2L"/>
-                                    <binding destination="BQc-VL-AdO" name="content" keyPath="arrangedObjects" id="P77-h3-UzZ">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">QSObjectValueTransformerET</string>
-                                        </dictionary>
-                                    </binding>
+                                    <binding destination="BQc-VL-AdO" name="content" keyPath="arrangedObjects" id="3MS-kR-FPg"/>
+                                    <outlet property="objects" destination="BQc-VL-AdO" id="nZg-YZ-w10"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </clipView>
-                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" id="U0R-hR-dbJ">
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="U0R-hR-dbJ">
                         <rect key="frame" x="1" y="61" width="207" height="16"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" id="DrT-Da-X2L">
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="DrT-Da-X2L">
                         <rect key="frame" x="224" y="17" width="15" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
@@ -363,18 +347,6 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button identifier="addIgnore" id="Tiw-dN-6ET">
-                    <rect key="frame" x="191" y="101" width="20" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="2vv-uq-VC6">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="showRestrictionPicker:" target="-2" id="6Ef-1m-ew4"/>
-                        <binding destination="-2" name="hidden" keyPath="ignoreLabel.hidden" id="ZVm-Be-y4O"/>
-                    </connections>
-                </button>
                 <button id="S6p-pA-P3g">
                     <rect key="frame" x="210" y="101" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
@@ -395,7 +367,7 @@
                         <rect key="frame" x="1" y="1" width="207" height="76"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" viewBased="YES" id="vfW-4Y-33U">
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" viewBased="YES" id="vfW-4Y-33U" customClass="QSObjectDraggedTableView">
                                 <rect key="frame" x="0.0" y="0.0" width="207" height="76"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
@@ -451,21 +423,18 @@
                                 </tableColumns>
                                 <connections>
                                     <action selector="updateTrigger:" target="-2" id="MeA-KW-qWb"/>
-                                    <binding destination="S0j-yo-jAU" name="content" keyPath="arrangedObjects" id="lFB-Vz-npL">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">QSObjectValueTransformerET</string>
-                                        </dictionary>
-                                    </binding>
+                                    <binding destination="S0j-yo-jAU" name="content" keyPath="arrangedObjects" id="vaj-Uh-C0c"/>
+                                    <outlet property="objects" destination="S0j-yo-jAU" id="0ge-5l-eB1"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </clipView>
-                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" id="p1r-H8-sAm">
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="p1r-H8-sAm">
                         <rect key="frame" x="1" y="119" width="223" height="15"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" id="OhX-lF-Up3">
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="OhX-lF-Up3">
                         <rect key="frame" x="224" y="17" width="15" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
@@ -497,36 +466,9 @@
                 <binding destination="153" name="contentArray" keyPath="selection.ignoreList" id="hS1-Za-txr"/>
             </connections>
         </arrayController>
-        <window title="Select Item(s)" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="wDx-pk-dHB" customClass="QSRestrictionPickerPanel">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" utility="YES"/>
-            <rect key="contentRect" x="666" y="536" width="320" height="64"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
-            <view key="contentView" id="Nas-er-hx2">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
-                <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <customView id="03c-Rt-ZEC" customClass="QSCollectingSearchObjectView">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </customView>
-                </subviews>
-            </view>
-            <connections>
-                <outlet property="delegate" destination="pAQ-KI-oVC" id="B4v-sm-VQi"/>
-                <outlet property="initialFirstResponder" destination="03c-Rt-ZEC" id="m5z-up-pM9"/>
-                <outlet property="searchObjView" destination="03c-Rt-ZEC" id="dSO-vH-dY6"/>
-            </connections>
-        </window>
-        <customObject id="pAQ-KI-oVC" customClass="QSEventTriggerRestrictionController">
-            <connections>
-                <outlet property="dSelector" destination="03c-Rt-ZEC" id="zNB-FL-P2i"/>
-                <outlet property="window" destination="wDx-pk-dHB" id="CLa-70-ruc"/>
-            </connections>
-        </customObject>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>
-        <image name="NSAddTemplate" width="8" height="8"/>
         <image name="NSRemoveTemplate" width="8" height="8"/>
     </resources>
 </document>
