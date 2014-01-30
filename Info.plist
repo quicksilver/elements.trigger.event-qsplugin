@@ -63,6 +63,7 @@
 &lt;li&gt;Screen Saver Stopped&lt;/li&gt;
 &lt;li&gt;Switched to Headphones&lt;/li&gt;
 &lt;li&gt;Switched to Internal Speakers&lt;/li&gt;
+&lt;li&gt;Switched to S/PDIF&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Trigger Settings&lt;/h2&gt;
 &lt;dl&gt;
@@ -224,6 +225,19 @@
 				<string>InternalSpeakers</string>
 				<key>name</key>
 				<string>Switched to Internal Speakers</string>
+				<key>provider</key>
+				<string>QSBasicEventTriggers</string>
+				<key>type</key>
+				<string>Hardware</string>
+			</dict>
+			<key>QSOpticalActiveEvent</key>
+			<dict>
+				<key>allowMatching</key>
+				<false/>
+				<key>icon</key>
+				<string>S/PDIF</string>
+				<key>name</key>
+				<string>Switched to S/PDIF</string>
 				<key>provider</key>
 				<string>QSBasicEventTriggers</string>
 				<key>type</key>
@@ -419,6 +433,13 @@
 			<string>com.blacktree.Quicksilver.QSEventTriggersPlugIn</string>
 			<key>resource</key>
 			<string>internal-speaker.png</string>
+		</dict>
+		<key>S/PDIF</key>
+		<dict>
+			<key>bundle</key>
+			<string>com.blacktree.Quicksilver.QSEventTriggersPlugIn</string>
+			<key>resource</key>
+			<string>optical.png</string>
 		</dict>
 		<key>SystemShutdown</key>
 		<dict>

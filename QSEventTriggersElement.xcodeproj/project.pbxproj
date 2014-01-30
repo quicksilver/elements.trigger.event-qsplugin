@@ -19,6 +19,7 @@
 		D44C099A1896F052009F83AE /* QSEventTriggerRestrictionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44C09991896F052009F83AE /* QSEventTriggerRestrictionController.m */; };
 		D44C099D189704EE009F83AE /* QSRestrictionPickerPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D44C099C189704EE009F83AE /* QSRestrictionPickerPanel.m */; };
 		D48A3328185251DF009022DA /* QSInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48A3327185251DF009022DA /* QSInterface.framework */; };
+		D4CE0501189A0A510035DF36 /* optical.png in Resources */ = {isa = PBXBuildFile; fileRef = D4CE0500189A0A510035DF36 /* optical.png */; };
 		E11E3A9807A3841700F55E58 /* QSBasicEventTriggers.h in Resources */ = {isa = PBXBuildFile; fileRef = E11E3A9607A3841700F55E58 /* QSBasicEventTriggers.h */; };
 		E11E3A9907A3841700F55E58 /* QSBasicEventTriggers.m in Sources */ = {isa = PBXBuildFile; fileRef = E11E3A9707A3841700F55E58 /* QSBasicEventTriggers.m */; };
 		E17CD96007A33F2B006BAEA7 /* QSEventTriggerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E17CD95E07A33F2B006BAEA7 /* QSEventTriggerManager.m */; };
@@ -48,6 +49,7 @@
 		D44C099B189704EE009F83AE /* QSRestrictionPickerPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSRestrictionPickerPanel.h; sourceTree = "<group>"; };
 		D44C099C189704EE009F83AE /* QSRestrictionPickerPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSRestrictionPickerPanel.m; sourceTree = "<group>"; };
 		D48A3327185251DF009022DA /* QSInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QSInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4CE0500189A0A510035DF36 /* optical.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = optical.png; path = Resources/optical.png; sourceTree = "<group>"; };
 		DD92D38A0106425D02CA0E72 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		E11E3A9607A3841700F55E58 /* QSBasicEventTriggers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSBasicEventTriggers.h; sourceTree = "<group>"; };
 		E11E3A9707A3841700F55E58 /* QSBasicEventTriggers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSBasicEventTriggers.m; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				D42C72A91899A13A0056BC93 /* display.png */,
 				D42C72AA1899A13A0056BC93 /* system-shutdown.png */,
 				D42C72AB1899A13A0056BC93 /* system-sleep.png */,
+				D4CE0500189A0A510035DF36 /* optical.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				D42C72AC1899A13A0056BC93 /* display.png in Resources */,
 				E17CDCF807A36941006BAEA7 /* QSEventTriggerManager.h in Resources */,
 				D42C72A4189987860056BC93 /* internal-speaker.png in Resources */,
+				D4CE0501189A0A510035DF36 /* optical.png in Resources */,
 				D42C72AD1899A13A0056BC93 /* system-shutdown.png in Resources */,
 				D42C72AE1899A13A0056BC93 /* system-sleep.png in Resources */,
 				E11E3A9807A3841700F55E58 /* QSBasicEventTriggers.h in Resources */,

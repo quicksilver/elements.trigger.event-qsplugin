@@ -28,6 +28,7 @@ You can assign triggers for the following events:
   * Screen Saver Stopped
   * Switched to Headphones
   * Switched to Internal Speakers
+  * Switched to S/PDIF
 
 ## Trigger Settings ##
 

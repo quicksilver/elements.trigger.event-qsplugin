@@ -10,7 +10,6 @@
 
 #define kQSHeadphonesActiveEvent @"QSHeadphonesActiveEvent"
 #define kQSInternalSpeakersActiveEvent @"QSInternalSpeakersActiveEvent"
-#define kQSAirplayActiveEvent @"QSAirplayActiveEvent"
 #define kQSOpticalActiveEvent @"QSOpticalActiveEvent"
 
 @implementation QSBasicEventTriggers
@@ -37,6 +36,7 @@
         _listenerBlocks = [[NSMutableDictionary alloc] init];
         [self defineListenerBlockFor:kQSHeadphonesActiveEvent deviceID:'hdpn'];
         [self defineListenerBlockFor:kQSInternalSpeakersActiveEvent deviceID:'ispk'];
+        [self defineListenerBlockFor:kQSOpticalActiveEvent deviceID:'spdf'];
 	}
 	return self;
 }
