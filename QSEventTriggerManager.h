@@ -39,7 +39,7 @@
 
 @class QSEventTriggerRestrictionController;
 
-@interface QSEventTriggerManager : QSTriggerManager {
+@interface QSEventTriggerManager : QSTriggerManager <NSTableViewDelegate> {
 	IBOutlet NSPopUpButton *eventPopUp;
     IBOutlet NSTextField *matchLabel;
     IBOutlet NSTextField *ignoreLabel;

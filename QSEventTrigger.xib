@@ -276,7 +276,7 @@
                         <rect key="frame" x="1" y="1" width="207" height="76"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" viewBased="YES" id="RvX-cH-7gH">
+                            <tableView identifier="matchTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" viewBased="YES" id="RvX-cH-7gH" customClass="QSObjectDraggedTableView">
                                 <rect key="frame" x="0.0" y="0.0" width="207" height="76"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
@@ -331,12 +331,13 @@
                                     </tableColumn>
                                 </tableColumns>
                                 <connections>
-                                    <action selector="updateTrigger:" target="-2" id="tdN-eI-b2L"/>
                                     <binding destination="BQc-VL-AdO" name="content" keyPath="arrangedObjects" id="P77-h3-UzZ">
                                         <dictionary key="options">
                                             <string key="NSValueTransformerName">QSObjectValueTransformerET</string>
                                         </dictionary>
                                     </binding>
+                                    <outlet property="arrayController" destination="BQc-VL-AdO" id="RxY-eM-dOd"/>
+                                    <outlet property="delegate" destination="-2" id="abQ-AB-V49"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -395,7 +396,7 @@
                         <rect key="frame" x="1" y="1" width="207" height="76"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" viewBased="YES" id="vfW-4Y-33U">
+                            <tableView identifier="ignoreTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" viewBased="YES" id="vfW-4Y-33U" customClass="QSObjectDraggedTableView">
                                 <rect key="frame" x="0.0" y="0.0" width="207" height="76"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
@@ -450,12 +451,13 @@
                                     </tableColumn>
                                 </tableColumns>
                                 <connections>
-                                    <action selector="updateTrigger:" target="-2" id="MeA-KW-qWb"/>
                                     <binding destination="S0j-yo-jAU" name="content" keyPath="arrangedObjects" id="lFB-Vz-npL">
                                         <dictionary key="options">
                                             <string key="NSValueTransformerName">QSObjectValueTransformerET</string>
                                         </dictionary>
                                     </binding>
+                                    <outlet property="arrayController" destination="S0j-yo-jAU" id="LSL-KL-zT7"/>
+                                    <outlet property="delegate" destination="-2" id="tIW-cZ-kcC"/>
                                 </connections>
                             </tableView>
                         </subviews>

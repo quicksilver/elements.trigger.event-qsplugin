@@ -226,8 +226,21 @@
 	[self populateInfoFields];
 }
 
+#pragma mark Table View Delegate
 
+// update the trigger when match/ignore lists are changed
 
+- (void)tableView:(NSTableView *)tableView didAddRowView:(NSTableRowView *)rowView forRow:(NSInteger)row
+{
+    [self updateTrigger:tableView];
+}
+
+- (void)tableView:(NSTableView *)tableView didRemoveRowView:(NSTableRowView *)rowView forRow:(NSInteger)row
+{
+    [self updateTrigger:tableView];
+}
+
+#pragma mark Proxy Object
 
 -(id)resolveProxyObject:(id)proxy{
 	return self.eventTriggerObject;
