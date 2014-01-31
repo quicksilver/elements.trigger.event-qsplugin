@@ -458,6 +458,9 @@
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="hidden" keyPath="matchLabel.hidden" id="9sv-oe-k5W"/>
+                    </connections>
                 </textField>
             </subviews>
         </customView>
