@@ -233,6 +233,28 @@
 				<key>type</key>
 				<string>Hardware</string>
 			</dict>
+			<key>QSInternetReachableEvent</key>
+			<dict>
+				<key>icon</key>
+				<string>GenericNetworkIcon</string>
+				<key>name</key>
+				<string>Internet Became Reachable</string>
+				<key>provider</key>
+				<string>QSInternetReachabilityEvents</string>
+				<key>type</key>
+				<string>Network</string>
+			</dict>
+			<key>QSInternetUnreachableEvent</key>
+			<dict>
+				<key>icon</key>
+				<string>GenericNetworkIcon</string>
+				<key>name</key>
+				<string>Internet Became Unreachable</string>
+				<key>provider</key>
+				<string>QSInternetReachabilityEvents</string>
+				<key>type</key>
+				<string>Network</string>
+			</dict>
 			<key>QSOpticalActiveEvent</key>
 			<dict>
 				<key>allowMatching</key>
