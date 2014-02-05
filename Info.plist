@@ -216,7 +216,7 @@
 				<key>name</key>
 				<string>Switched to Headphones</string>
 				<key>provider</key>
-				<string>QSBasicEventTriggers</string>
+				<string>QSAudioOutputEvents</string>
 				<key>type</key>
 				<string>Hardware</string>
 			</dict>
@@ -229,7 +229,7 @@
 				<key>name</key>
 				<string>Switched to Internal Speakers</string>
 				<key>provider</key>
-				<string>QSBasicEventTriggers</string>
+				<string>QSAudioOutputEvents</string>
 				<key>type</key>
 				<string>Hardware</string>
 			</dict>
@@ -242,7 +242,7 @@
 				<key>name</key>
 				<string>Switched to S/PDIF</string>
 				<key>provider</key>
-				<string>QSBasicEventTriggers</string>
+				<string>QSAudioOutputEvents</string>
 				<key>type</key>
 				<string>Hardware</string>
 			</dict>

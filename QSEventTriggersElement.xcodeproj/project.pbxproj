@@ -16,6 +16,7 @@
 		D42C72AD1899A13A0056BC93 /* system-shutdown.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C72AA1899A13A0056BC93 /* system-shutdown.png */; };
 		D42C72AE1899A13A0056BC93 /* system-sleep.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C72AB1899A13A0056BC93 /* system-sleep.png */; };
 		D44C09911891A2D1009F83AE /* QSObjectValueTransformerET.m in Sources */ = {isa = PBXBuildFile; fileRef = D44C09901891A2D1009F83AE /* QSObjectValueTransformerET.m */; };
+		D44C7F7A18A29D8D00F1767D /* QSAudioOutputEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = D44C7F7918A29D8D00F1767D /* QSAudioOutputEvents.m */; };
 		D48A3328185251DF009022DA /* QSInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48A3327185251DF009022DA /* QSInterface.framework */; };
 		D4A04E23189AACBA00F04D95 /* QSObjectDraggedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A04E20189AACBA00F04D95 /* QSObjectDraggedTableView.m */; };
 		D4CE0501189A0A510035DF36 /* optical.png in Resources */ = {isa = PBXBuildFile; fileRef = D4CE0500189A0A510035DF36 /* optical.png */; };
@@ -43,6 +44,8 @@
 		D44124CA1680C4C600793732 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		D44C098F1891A2D1009F83AE /* QSObjectValueTransformerET.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSObjectValueTransformerET.h; sourceTree = "<group>"; };
 		D44C09901891A2D1009F83AE /* QSObjectValueTransformerET.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSObjectValueTransformerET.m; sourceTree = "<group>"; };
+		D44C7F7818A29D8D00F1767D /* QSAudioOutputEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSAudioOutputEvents.h; sourceTree = "<group>"; };
+		D44C7F7918A29D8D00F1767D /* QSAudioOutputEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSAudioOutputEvents.m; sourceTree = "<group>"; };
 		D48A3327185251DF009022DA /* QSInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QSInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A04E1F189AACBA00F04D95 /* QSObjectDraggedTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSObjectDraggedTableView.h; sourceTree = "<group>"; };
 		D4A04E20189AACBA00F04D95 /* QSObjectDraggedTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSObjectDraggedTableView.m; sourceTree = "<group>"; };
@@ -123,6 +126,8 @@
 				D44C09901891A2D1009F83AE /* QSObjectValueTransformerET.m */,
 				D4A04E1F189AACBA00F04D95 /* QSObjectDraggedTableView.h */,
 				D4A04E20189AACBA00F04D95 /* QSObjectDraggedTableView.m */,
+				D44C7F7818A29D8D00F1767D /* QSAudioOutputEvents.h */,
+				D44C7F7918A29D8D00F1767D /* QSAudioOutputEvents.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E17CD96007A33F2B006BAEA7 /* QSEventTriggerManager.m in Sources */,
+				D44C7F7A18A29D8D00F1767D /* QSAudioOutputEvents.m in Sources */,
 				D44C09911891A2D1009F83AE /* QSObjectValueTransformerET.m in Sources */,
 				D4A04E23189AACBA00F04D95 /* QSObjectDraggedTableView.m in Sources */,
 				E11E3A9907A3841700F55E58 /* QSBasicEventTriggers.m in Sources */,

@@ -8,10 +8,6 @@
 #import "QSBasicEventTriggers.h"
 #import "QSEventTriggerManager.h"
 
-#define kQSHeadphonesActiveEvent @"QSHeadphonesActiveEvent"
-#define kQSInternalSpeakersActiveEvent @"QSInternalSpeakersActiveEvent"
-#define kQSOpticalActiveEvent @"QSOpticalActiveEvent"
-
 @implementation QSBasicEventTriggers
 -(id)init{
 	if (self=[super init]){
@@ -32,30 +28,8 @@
             @"QSScreensaverStoppedEvent": @"com.apple.screensaver.didstop",
             @"QSExternalDisplayChanged": @"com.apple.BezelServices.BMDisplayHWReconfiguredEvent",
         };
-        [self discoverAudioDeviceProperties];
-        _listenerBlocks = [[NSMutableDictionary alloc] init];
-        [self registerListenerBlockForEvent:kQSHeadphonesActiveEvent deviceID:'hdpn'];
-        [self registerListenerBlockForEvent:kQSInternalSpeakersActiveEvent deviceID:'ispk'];
-        [self registerListenerBlockForEvent:kQSOpticalActiveEvent deviceID:'spdf'];
 	}
 	return self;
-}
-
-- (void)discoverAudioDeviceProperties
-{
-    defaultDevice = 0;
-    UInt32 defaultSize = sizeof(AudioDeviceID);
-    
-    const AudioObjectPropertyAddress defaultAddr = {
-        kAudioHardwarePropertyDefaultOutputDevice,
-        kAudioObjectPropertyScopeGlobal,
-        kAudioObjectPropertyElementMaster
-    };
-    AudioObjectGetPropertyData(kAudioObjectSystemObject, &defaultAddr, 0, NULL, &defaultSize, &defaultDevice);
-    
-    sourceAddr.mSelector = kAudioDevicePropertyDataSource;
-    sourceAddr.mScope = kAudioDevicePropertyScopeOutput;
-    sourceAddr.mElement = kAudioObjectPropertyElementMaster;
 }
 
 - (void)addObserverForEvent:(NSString *)event trigger:(QSTrigger *)trigger
@@ -68,9 +42,6 @@
         NSDistributedNotificationCenter *dc = [NSDistributedNotificationCenter defaultCenter];
         [dc addObserver:self selector:@selector(handleSystemNotification:) name:[distmap objectForKey:event] object:nil];
     }
-    if ([self.listenerBlocks objectForKey:event]) {
-        [self monitorAudioOutputDeviceForEvent:event];
-    }
 }
 
 - (void)removeObserverForEvent:(NSString *)event trigger:(QSTrigger *)trigger
@@ -82,9 +53,6 @@
     if ([distmap objectForKey:event]) {
         NSDistributedNotificationCenter *dc = [NSDistributedNotificationCenter defaultCenter];
         [dc removeObserver:self name:[distmap objectForKey:event] object:nil];
-    }
-    if ([self.listenerBlocks objectForKey:event]) {
-        [self ignoreAudioOutputDeviceForEvent:event];
     }
 }
 
@@ -111,34 +79,6 @@
 		return;
 	}
 	[[QSEventTriggerManager sharedInstance] handleTriggerEvent:name withObject:nil];
-}
-
-- (void)registerListenerBlockForEvent:(NSString *)audioDeviceEvent deviceID:(FourCharCode)targetSourceID
-{
-    AudioObjectPropertyListenerBlock listenerBlock = ^(UInt32 inNumberAddresses, const AudioObjectPropertyAddress *inAddresses) {
-        FourCharCode bDataSourceId = 0;
-        UInt32 bDataSourceIdSize = sizeof(FourCharCode);
-        AudioObjectGetPropertyData(defaultDevice, inAddresses, 0, NULL, &bDataSourceIdSize, &bDataSourceId);
-        if (bDataSourceId == targetSourceID) {
-            [[QSEventTriggerManager sharedInstance] handleTriggerEvent:audioDeviceEvent withObject:nil];
-        }
-    };
-    
-    [self.listenerBlocks setObject:listenerBlock forKey:audioDeviceEvent];
-}
-
-- (void)monitorAudioOutputDeviceForEvent:(NSString *)audioDeviceEvent
-{
-    AudioObjectPropertyListenerBlock listenerBlock = [self.listenerBlocks objectForKey:audioDeviceEvent];
-    
-    AudioObjectAddPropertyListenerBlock(defaultDevice, &sourceAddr, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), listenerBlock);
-}
-
-- (void)ignoreAudioOutputDeviceForEvent:(NSString *)audioDeviceEvent
-{
-    AudioObjectPropertyListenerBlock listenerBlock = [self.listenerBlocks objectForKey:audioDeviceEvent];
-    
-    AudioObjectRemovePropertyListenerBlock(defaultDevice, &sourceAddr, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), listenerBlock);
 }
 
 - (NSString *)nameForEvent:(NSString *)inName
