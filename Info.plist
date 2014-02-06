@@ -68,6 +68,8 @@
 &lt;li&gt;Switched to Headphones&lt;/li&gt;
 &lt;li&gt;Switched to Internal Speakers&lt;/li&gt;
 &lt;li&gt;Switched to S/PDIF&lt;/li&gt;
+&lt;li&gt;Internet Became Available&lt;/li&gt;
+&lt;li&gt;Internet Became Unavailable&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Plug-in Events&lt;/h2&gt;
 &lt;p&gt;Other plug-ins may define additional events. These are generally things that happen when running an action in Quicksilver, rather than on the system in general.&lt;/p&gt;

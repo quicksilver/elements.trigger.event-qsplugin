@@ -35,6 +35,8 @@ You can assign triggers for the following events:
   * Switched to Headphones
   * Switched to Internal Speakers
   * Switched to S/PDIF
+  * Internet Became Available
+  * Internet Became Unavailable
 
 ## Plug-in Events ##
 
