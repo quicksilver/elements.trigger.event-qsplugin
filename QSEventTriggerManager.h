@@ -24,6 +24,12 @@
 
 @interface NSObject (QSEventTriggerProvider)
 
+// Called when first trigger enabled for this provider
+- (void)enableEventProvider;
+
+// Called when last trigger disabled for this provider
+- (void)disableEventProvider;
+
 // Called when first trigger enabled for event
 - (void)enableEventObserving:(NSString *)event;
 
@@ -45,6 +51,7 @@
 }
 
 @property (retain) id eventTriggerObject;
+@property (retain) NSMutableSet *activeProviders;
 
 + (id)sharedInstance;
 - (IBAction)updateTrigger:(id)sender;

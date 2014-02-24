@@ -31,6 +31,7 @@
 - (id) init{
     if (self=[super init]){
 		triggersByEvent=[[NSMutableDictionary alloc]init];
+        _activeProviders = [[NSMutableSet alloc] init];
 		[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(eventTriggered:) name:QSEventNotification object:nil];
 		[self addObserver:self
 			   forKeyPath:@"currentTrigger"
@@ -62,12 +63,33 @@
 	return array;
 }
 
+- (NSArray *)triggerArrayForProvider:(NSString *)providerName
+{
+    NSMutableArray *allTriggers = [[QSTriggerCenter sharedInstance] triggers];
+    NSIndexSet *triggerIndexes = [allTriggers indexesOfObjectsPassingTest:^BOOL(QSTrigger *trigger, NSUInteger idx, BOOL *stop) {
+        if ([trigger enabled] && [[trigger type] isEqualToString:@"QSEventTrigger"]) {
+            NSString *event = [trigger objectForKey:kQSEventTrigger];
+            NSDictionary *eventInfo = [[QSReg tableNamed:kQSTriggerEvents] objectForKey:event];
+            NSString *thisProvider = [eventInfo objectForKey:@"provider"];
+            return [thisProvider isEqualToString:providerName];
+        }
+        return NO;
+    }];
+    return [allTriggers objectsAtIndexes:triggerIndexes];
+}
+
 -(BOOL)enableTrigger:(QSTrigger *)entry{
 	NSString *event=[entry objectForKey:kQSEventTrigger];
 	NSDictionary *eventInfo=[[QSReg tableNamed:kQSTriggerEvents]objectForKey:event];
 	NSString *providerClass=[eventInfo objectForKey:@"provider"];
 	id provider=[QSReg getClassInstance:providerClass];
 	
+    if (providerClass && ![self.activeProviders containsObject:providerClass]) {
+        if ([provider respondsToSelector:@selector(enableEventProvider)]) {
+            [provider enableEventProvider];
+        }
+        [self.activeProviders addObject:providerClass];
+    }
 	NSMutableArray *triggerArray=[self triggerArrayForEvent:event];
 	if ([triggerArray count]==0){
 		if ([provider respondsToSelector:@selector(enableEventObserving:)])
@@ -101,6 +123,12 @@
 		if ([provider respondsToSelector:@selector(disableEventObserving:)])
 			[provider disableEventObserving:event];
 	}
+    if (providerClass && [[self triggerArrayForProvider:providerClass] count] == 0) {
+        if ([provider respondsToSelector:@selector(disableEventProvider)]) {
+            [provider disableEventProvider];
+        }
+        [self.activeProviders removeObject:providerClass];
+    }
     return YES;
 }
 
