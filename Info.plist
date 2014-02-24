@@ -65,6 +65,9 @@
 &lt;li&gt;Disk Will Eject&lt;/li&gt;
 &lt;li&gt;Screen Saver Started&lt;/li&gt;
 &lt;li&gt;Screen Saver Stopped&lt;/li&gt;
+&lt;li&gt;Switched to A/C Power&lt;/li&gt;
+&lt;li&gt;Switched to Battery Power&lt;/li&gt;
+&lt;li&gt;Switched to UPS Power&lt;/li&gt;
 &lt;li&gt;Switched to Headphones&lt;/li&gt;
 &lt;li&gt;Switched to Internal Speakers&lt;/li&gt;
 &lt;li&gt;Switched to S/PDIF&lt;/li&gt;
@@ -270,6 +273,39 @@
 				<key>type</key>
 				<string>Hardware</string>
 			</dict>
+			<key>QSPowerSourceACEvent</key>
+			<dict>
+				<key>icon</key>
+				<string>ACPower</string>
+				<key>name</key>
+				<string>Switched to A/C Power</string>
+				<key>provider</key>
+				<string>QSPowerSourceEvents</string>
+				<key>type</key>
+				<string>Hardware</string>
+			</dict>
+			<key>QSPowerSourceBatteryEvent</key>
+			<dict>
+				<key>icon</key>
+				<string>BatteryPower</string>
+				<key>name</key>
+				<string>Switched to Battery Power</string>
+				<key>provider</key>
+				<string>QSPowerSourceEvents</string>
+				<key>type</key>
+				<string>Hardware</string>
+			</dict>
+			<key>QSPowerSourceUPSEvent</key>
+			<dict>
+				<key>icon</key>
+				<string>UPSPower</string>
+				<key>name</key>
+				<string>Switched to UPS Power</string>
+				<key>provider</key>
+				<string>QSPowerSourceEvents</string>
+				<key>type</key>
+				<string>Hardware</string>
+			</dict>
 			<key>QSQuicksilverLaunchedAtLoginEvent</key>
 			<dict>
 				<key>icon</key>
@@ -433,6 +469,20 @@
 	</dict>
 	<key>QSResourceAdditions</key>
 	<dict>
+		<key>ACPower</key>
+		<dict>
+			<key>bundle</key>
+			<string>com.blacktree.Quicksilver.QSEventTriggersPlugIn</string>
+			<key>resource</key>
+			<string>power-ac.png</string>
+		</dict>
+		<key>BatteryPower</key>
+		<dict>
+			<key>bundle</key>
+			<string>com.blacktree.Quicksilver.QSEventTriggersPlugIn</string>
+			<key>resource</key>
+			<string>power-battery.png</string>
+		</dict>
 		<key>DisplayDevice</key>
 		<dict>
 			<key>bundle</key>
@@ -481,6 +531,13 @@
 			<string>com.blacktree.Quicksilver.QSEventTriggersPlugIn</string>
 			<key>resource</key>
 			<string>system-sleep.png</string>
+		</dict>
+		<key>UPSPower</key>
+		<dict>
+			<key>bundle</key>
+			<string>com.blacktree.Quicksilver.QSEventTriggersPlugIn</string>
+			<key>resource</key>
+			<string>power-ups.png</string>
 		</dict>
 	</dict>
 </dict>

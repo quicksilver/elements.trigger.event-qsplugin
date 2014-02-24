@@ -32,6 +32,9 @@ You can assign triggers for the following events:
   * Disk Will Eject
   * Screen Saver Started
   * Screen Saver Stopped
+  * Switched to A/C Power
+  * Switched to Battery Power
+  * Switched to UPS Power
   * Switched to Headphones
   * Switched to Internal Speakers
   * Switched to S/PDIF
