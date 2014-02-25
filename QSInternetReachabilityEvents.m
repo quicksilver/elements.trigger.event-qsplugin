@@ -11,7 +11,7 @@
 
 @implementation QSInternetReachabilityEvents
 
-- (void)enableEventObserving:(NSString *)event
+- (void)enableEventProvider
 {
     if (!_reach) {
         _reach = [Reachability reachabilityForInternetConnection];
@@ -21,7 +21,7 @@
     }
 }
 
-- (void)disableEventObserving:(NSString *)event
+- (void)disableEventProvider
 {
     [_reach stopNotifier];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
