@@ -10,7 +10,7 @@
 
 @class Reachability;
 
-@interface QSInternetReachabilityEvents : NSObject
+@interface QSInternetReachabilityEvents : NSObject <QSEventTriggerProvider>
 
 @property (readonly, retain) Reachability *reach;
 @property (assign) BOOL lastKnownState;

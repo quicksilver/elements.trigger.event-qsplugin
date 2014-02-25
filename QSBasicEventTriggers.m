@@ -6,7 +6,6 @@
 //
 
 #import "QSBasicEventTriggers.h"
-#import "QSEventTriggerManager.h"
 
 @implementation QSBasicEventTriggers
 -(id)init{

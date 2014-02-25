@@ -6,13 +6,14 @@
 //
 //
 
+#import "QSEventTriggerManager.h"
 #import <CoreAudio/CoreAudio.h>
 
 #define kQSHeadphonesActiveEvent @"QSHeadphonesActiveEvent"
 #define kQSInternalSpeakersActiveEvent @"QSInternalSpeakersActiveEvent"
 #define kQSOpticalActiveEvent @"QSOpticalActiveEvent"
 
-@interface QSAudioOutputEvents : NSObject {
+@interface QSAudioOutputEvents : NSObject <QSEventTriggerProvider> {
     AudioDeviceID defaultDevice;
     AudioObjectPropertyAddress sourceAddr;
 }

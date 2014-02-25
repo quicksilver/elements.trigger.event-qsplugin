@@ -5,7 +5,9 @@
 //  Created by Nicholas Jitkoff on 1/22/05.
 //
 
-@interface QSBasicEventTriggers : NSObject {
+#import "QSEventTriggerManager.h"
+
+@interface QSBasicEventTriggers : NSObject <QSEventTriggerProvider> {
     NSDictionary *wsmap;
     NSDictionary *distmap;
 }

@@ -6,7 +6,9 @@
 //
 //
 
-@interface QSPowerSourceEvents : NSObject {
+#import "QSEventTriggerManager.h"
+
+@interface QSPowerSourceEvents : NSObject <QSEventTriggerProvider> {
     CFRunLoopSourceRef rls;
 }
 

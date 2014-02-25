@@ -7,7 +7,6 @@
 //
 
 #import "QSAudioOutputEvents.h"
-#import "QSEventTriggerManager.h"
 
 @implementation QSAudioOutputEvents
 

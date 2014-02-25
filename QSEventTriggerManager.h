@@ -22,27 +22,6 @@
 #define kQSEventTriggerMatch @"matchList"
 #define kQSEventTriggerIgnore @"ignoreList"
 
-@interface NSObject (QSEventTriggerProvider)
-
-// Called when first trigger enabled for this provider
-- (void)enableEventProvider;
-
-// Called when last trigger disabled for this provider
-- (void)disableEventProvider;
-
-// Called when first trigger enabled for event
-- (void)enableEventObserving:(NSString *)event;
-
-// Called when last trigger disabled for event
-- (void)disableEventObserving:(NSString *)event;
-
-// Called when any matching triggers are enabled/disabled
-- (void)addObserverForEvent:(NSString *)event trigger:(QSTrigger *)trigger;
-- (void)removeObserverForEvent:(NSString *)event trigger:(QSTrigger *)trigger;
-
-
-@end
-
 @interface QSEventTriggerManager : QSTriggerManager <NSTableViewDelegate> {
 	IBOutlet NSPopUpButton *eventPopUp;
     IBOutlet NSTextField *matchLabel;

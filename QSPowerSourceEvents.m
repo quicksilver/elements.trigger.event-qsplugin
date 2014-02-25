@@ -7,7 +7,6 @@
 //
 
 #import "QSPowerSourceEvents.h"
-#import "QSEventTriggerManager.h"
 #import <IOKit/ps/IOPowerSources.h>
 
 void handlePowerSourceChange(void *context)
