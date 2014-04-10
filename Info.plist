@@ -465,7 +465,7 @@
 	<key>QSRequirements</key>
 	<dict>
 		<key>version</key>
-		<string>400A</string>
+		<string>400B</string>
 	</dict>
 	<key>QSResourceAdditions</key>
 	<dict>
