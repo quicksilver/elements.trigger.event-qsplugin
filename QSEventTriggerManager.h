@@ -38,4 +38,6 @@
 
 -(void)handleTriggerEvent:(NSString *)event withObject:(id)object;
 - (void)setEventTriggerObject:(id)newEventTriggerObject;
+@property (strong) IBOutlet NSArrayController *matchObjects;
+@property (strong) IBOutlet NSArrayController *ignoreObjects;
 @end

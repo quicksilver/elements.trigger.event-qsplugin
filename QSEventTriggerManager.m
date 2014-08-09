@@ -250,6 +250,21 @@
 
 - (void)tableView:(NSTableView *)tableView didAddRowView:(NSTableRowView *)rowView forRow:(NSInteger)row
 {
+    if ([[tableView identifier] isEqualToString:@"matchTable"]) {
+        // an object was added to the match array
+        // remove from ignore array
+        QSObject *droppedObject = [[self.matchObjects content] objectAtIndex:row];
+        if ([[self.ignoreObjects content] containsObject:droppedObject]) {
+            [self.ignoreObjects removeObject:droppedObject];
+        }
+    } else if ([[tableView identifier] isEqualToString:@"ignoreTable"]) {
+        // an object was added to the ignore array
+        // remove from match array
+        QSObject *droppedObject = [[self.ignoreObjects content] objectAtIndex:row];
+        if ([[self.matchObjects content] containsObject:droppedObject]) {
+            [self.matchObjects removeObject:droppedObject];
+        }
+    }
     [self updateTrigger:tableView];
 }
 

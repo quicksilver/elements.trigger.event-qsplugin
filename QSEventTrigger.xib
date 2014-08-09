@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4511" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4511" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment version="1070" defaultVersion="1070" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4511"/>
@@ -9,7 +9,9 @@
             <connections>
                 <outlet property="eventPopUp" destination="101" id="104"/>
                 <outlet property="ignoreLabel" destination="w4R-Dc-iFV" id="puf-um-FyF"/>
+                <outlet property="ignoreObjects" destination="S0j-yo-jAU" id="HK8-Bl-wjD"/>
                 <outlet property="matchLabel" destination="ZUf-zG-lV0" id="Kky-Ci-SJq"/>
+                <outlet property="matchObjects" destination="BQc-VL-AdO" id="XtS-wV-QQt"/>
                 <outlet property="settingsView" destination="5" id="103"/>
             </connections>
         </customObject>
