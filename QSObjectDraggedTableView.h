@@ -6,7 +6,6 @@
 //
 //
 
-#import <Cocoa/Cocoa.h>
 @class QSEventTriggerManager;
 
 @interface QSObjectDraggedTableView : NSTableView <NSDraggingDestination>
