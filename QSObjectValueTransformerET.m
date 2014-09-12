@@ -27,7 +27,7 @@
         NSMutableArray *objects = [[NSMutableArray alloc] init];
         QSObject *restriction = nil;
         for (NSString *ident in objectIDs) {
-            restriction = [QSLib objectWithIdentifier:ident];
+            restriction = [QSObject objectWithIdentifier:ident];
             if (!restriction) {
                 restriction = [QSObject objectWithString:ident];
             }
