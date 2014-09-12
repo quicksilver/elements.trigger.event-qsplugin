@@ -7,38 +7,28 @@
 
 #import "QSBasicEventTriggers.h"
 
-#import "QSEventTriggerManager.h"
 @implementation QSBasicEventTriggers
 -(id)init{
 	if (self=[super init]){
-        wsmap = [NSDictionary dictionaryWithObjectsAndKeys:
-                 NSWorkspaceWillSleepNotification, @"QSWorkspaceWillSleepEvent",
-                 NSWorkspaceDidWakeNotification, @"QSWorkspaceDidWakeEvent",
-                 NSWorkspaceWillPowerOffNotification, @"QSWorkspaceWillPowerOffEvent",
-                 NSWorkspaceSessionDidResignActiveNotification, @"QSWorkspaceSessionDidResignActiveEvent",
-                 NSWorkspaceSessionDidBecomeActiveNotification, @"QSWorkspaceSessionDidBecomeActiveEvent",
-                 NSWorkspaceActiveSpaceDidChangeNotification, @"QSActiveSpaceChangedEvent",
-                 NSWorkspaceDidMountNotification, @"QSWorkspaceDidMountEvent",
-                 NSWorkspaceWillUnmountNotification, @"QSWorkspaceWillUnmountEvent",
-                 NSWorkspaceDidUnmountNotification, @"QSWorkspaceDidUnmountEvent",
-                 nil];
-        [wsmap retain];
-        distmap = [NSDictionary dictionaryWithObjectsAndKeys:
-                   @"com.apple.internetconfignotification", @"QSEthernetConfigurationChanged",
-                   @"com.apple.screensaver.didstart", @"QSScreensaverStartedEvent",
-                   @"com.apple.screensaver.didstop", @"QSScreensaverStoppedEvent",
-                   @"com.apple.BezelServices.BMDisplayHWReconfiguredEvent", @"QSExternalDisplayChanged",
-                   nil];
-        [distmap retain];
+        wsmap = @{
+            @"QSWorkspaceWillSleepEvent": NSWorkspaceWillSleepNotification,
+            @"QSWorkspaceDidWakeEvent": NSWorkspaceDidWakeNotification,
+            @"QSWorkspaceWillPowerOffEvent": NSWorkspaceWillPowerOffNotification,
+            @"QSWorkspaceSessionDidResignActiveEvent": NSWorkspaceSessionDidResignActiveNotification,
+            @"QSWorkspaceSessionDidBecomeActiveEvent": NSWorkspaceSessionDidBecomeActiveNotification,
+            @"QSActiveSpaceChangedEvent": NSWorkspaceActiveSpaceDidChangeNotification,
+            @"QSWorkspaceDidMountEvent": NSWorkspaceDidMountNotification,
+            @"QSWorkspaceWillUnmountEvent": NSWorkspaceWillUnmountNotification,
+            @"QSWorkspaceDidUnmountEvent": NSWorkspaceDidUnmountNotification,
+        };
+        distmap = @{
+            @"QSEthernetConfigurationChanged": @"com.apple.internetconfignotification",
+            @"QSScreensaverStartedEvent": @"com.apple.screensaver.didstart",
+            @"QSScreensaverStoppedEvent": @"com.apple.screensaver.didstop",
+            @"QSExternalDisplayChanged": @"com.apple.BezelServices.BMDisplayHWReconfiguredEvent",
+        };
 	}
 	return self;
-}
-
-- (void)dealloc
-{
-    [wsmap release];
-    [distmap release];
-    [super dealloc];
 }
 
 - (void)addObserverForEvent:(NSString *)event trigger:(QSTrigger *)trigger

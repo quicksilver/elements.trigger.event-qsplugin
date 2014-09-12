@@ -3,12 +3,31 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		8D1AC9700486D14A00FE50C9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD92D38A0106425D02CA0E72 /* Cocoa.framework */; };
 		D416002C1682445D00509469 /* QSEventTrigger.xib in Resources */ = {isa = PBXBuildFile; fileRef = D416002B1682445D00509469 /* QSEventTrigger.xib */; };
+		D42C72A01899864D0056BC93 /* headphones.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C729F1899864D0056BC93 /* headphones.png */; };
+		D42C72A4189987860056BC93 /* internal-speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C72A3189987860056BC93 /* internal-speaker.png */; };
+		D42C72A818998EBF0056BC93 /* ethernet-port.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C72A718998EBF0056BC93 /* ethernet-port.png */; };
+		D42C72AC1899A13A0056BC93 /* display.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C72A91899A13A0056BC93 /* display.png */; };
+		D42C72AD1899A13A0056BC93 /* system-shutdown.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C72AA1899A13A0056BC93 /* system-shutdown.png */; };
+		D42C72AE1899A13A0056BC93 /* system-sleep.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C72AB1899A13A0056BC93 /* system-sleep.png */; };
+		D44C09911891A2D1009F83AE /* QSObjectValueTransformerET.m in Sources */ = {isa = PBXBuildFile; fileRef = D44C09901891A2D1009F83AE /* QSObjectValueTransformerET.m */; };
+		D44C7F2C18A1766200F1767D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D44C7F2B18A1766200F1767D /* Reachability.m */; };
+		D44C7F2F18A176E400F1767D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C7F2D18A176C300F1767D /* SystemConfiguration.framework */; };
+		D44C7F3218A1893900F1767D /* QSInternetReachabilityEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = D44C7F3118A1893900F1767D /* QSInternetReachabilityEvents.m */; };
+		D44C7F7A18A29D8D00F1767D /* QSAudioOutputEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = D44C7F7918A29D8D00F1767D /* QSAudioOutputEvents.m */; };
+		D48A3328185251DF009022DA /* QSInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48A3327185251DF009022DA /* QSInterface.framework */; };
+		D4A04E23189AACBA00F04D95 /* QSObjectDraggedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A04E20189AACBA00F04D95 /* QSObjectDraggedTableView.m */; };
+		D4AAD85E18B6B54600756714 /* QSPowerSourceEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAD85D18B6B54600756714 /* QSPowerSourceEvents.m */; };
+		D4AAD86018B6B5C600756714 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4AAD85F18B6B5C600756714 /* IOKit.framework */; };
+		D4AAD86618B79B2800756714 /* power-ac.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AAD86318B79B2800756714 /* power-ac.png */; };
+		D4AAD86718B79B2800756714 /* power-battery.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AAD86418B79B2800756714 /* power-battery.png */; };
+		D4AAD86818B79B2800756714 /* power-ups.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AAD86518B79B2800756714 /* power-ups.png */; };
+		D4CE0501189A0A510035DF36 /* optical.png in Resources */ = {isa = PBXBuildFile; fileRef = D4CE0500189A0A510035DF36 /* optical.png */; };
 		E11E3A9807A3841700F55E58 /* QSBasicEventTriggers.h in Resources */ = {isa = PBXBuildFile; fileRef = E11E3A9607A3841700F55E58 /* QSBasicEventTriggers.h */; };
 		E11E3A9907A3841700F55E58 /* QSBasicEventTriggers.m in Sources */ = {isa = PBXBuildFile; fileRef = E11E3A9707A3841700F55E58 /* QSBasicEventTriggers.m */; };
 		E17CD96007A33F2B006BAEA7 /* QSEventTriggerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E17CD95E07A33F2B006BAEA7 /* QSEventTriggerManager.m */; };
@@ -19,13 +38,37 @@
 		8D1AC9730486D14A00FE50C9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1AC9740486D14A00FE50C9 /* Event Triggers.qsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Event Triggers.qsplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D416002B1682445D00509469 /* QSEventTrigger.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QSEventTrigger.xib; sourceTree = "<group>"; };
+		D42C729F1899864D0056BC93 /* headphones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = headphones.png; path = Resources/headphones.png; sourceTree = "<group>"; };
+		D42C72A3189987860056BC93 /* internal-speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "internal-speaker.png"; path = "Resources/internal-speaker.png"; sourceTree = "<group>"; };
+		D42C72A718998EBF0056BC93 /* ethernet-port.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ethernet-port.png"; path = "Resources/ethernet-port.png"; sourceTree = "<group>"; };
+		D42C72A91899A13A0056BC93 /* display.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = display.png; path = Resources/display.png; sourceTree = "<group>"; };
+		D42C72AA1899A13A0056BC93 /* system-shutdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "system-shutdown.png"; path = "Resources/system-shutdown.png"; sourceTree = "<group>"; };
+		D42C72AB1899A13A0056BC93 /* system-sleep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "system-sleep.png"; path = "Resources/system-sleep.png"; sourceTree = "<group>"; };
 		D44124C51680C4C600793732 /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		D44124C61680C4C600793732 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		D44124C71680C4C600793732 /* Developer.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Developer.xcconfig; sourceTree = "<group>"; };
 		D44124C81680C4C600793732 /* QSPlugIn.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = QSPlugIn.xcconfig; sourceTree = "<group>"; };
 		D44124C91680C4C600793732 /* Quicksilver.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quicksilver.pch; sourceTree = "<group>"; };
 		D44124CA1680C4C600793732 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
-		D44124CD1680C56E00793732 /* QSFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QSFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D44C098F1891A2D1009F83AE /* QSObjectValueTransformerET.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSObjectValueTransformerET.h; sourceTree = "<group>"; };
+		D44C09901891A2D1009F83AE /* QSObjectValueTransformerET.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSObjectValueTransformerET.m; sourceTree = "<group>"; };
+		D44C7F2A18A1766200F1767D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		D44C7F2B18A1766200F1767D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		D44C7F2D18A176C300F1767D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D44C7F3018A1893900F1767D /* QSInternetReachabilityEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSInternetReachabilityEvents.h; sourceTree = "<group>"; };
+		D44C7F3118A1893900F1767D /* QSInternetReachabilityEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSInternetReachabilityEvents.m; sourceTree = "<group>"; };
+		D44C7F7818A29D8D00F1767D /* QSAudioOutputEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSAudioOutputEvents.h; sourceTree = "<group>"; };
+		D44C7F7918A29D8D00F1767D /* QSAudioOutputEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSAudioOutputEvents.m; sourceTree = "<group>"; };
+		D48A3327185251DF009022DA /* QSInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QSInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4A04E1F189AACBA00F04D95 /* QSObjectDraggedTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSObjectDraggedTableView.h; sourceTree = "<group>"; };
+		D4A04E20189AACBA00F04D95 /* QSObjectDraggedTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSObjectDraggedTableView.m; sourceTree = "<group>"; };
+		D4AAD85C18B6B54600756714 /* QSPowerSourceEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSPowerSourceEvents.h; sourceTree = "<group>"; };
+		D4AAD85D18B6B54600756714 /* QSPowerSourceEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSPowerSourceEvents.m; sourceTree = "<group>"; };
+		D4AAD85F18B6B5C600756714 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		D4AAD86318B79B2800756714 /* power-ac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "power-ac.png"; path = "Resources/power-ac.png"; sourceTree = "<group>"; };
+		D4AAD86418B79B2800756714 /* power-battery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "power-battery.png"; path = "Resources/power-battery.png"; sourceTree = "<group>"; };
+		D4AAD86518B79B2800756714 /* power-ups.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "power-ups.png"; path = "Resources/power-ups.png"; sourceTree = "<group>"; };
+		D4CE0500189A0A510035DF36 /* optical.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = optical.png; path = Resources/optical.png; sourceTree = "<group>"; };
 		DD92D38A0106425D02CA0E72 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		E11E3A9607A3841700F55E58 /* QSBasicEventTriggers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSBasicEventTriggers.h; sourceTree = "<group>"; };
 		E11E3A9707A3841700F55E58 /* QSBasicEventTriggers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSBasicEventTriggers.m; sourceTree = "<group>"; };
@@ -38,7 +81,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4AAD86018B6B5C600756714 /* IOKit.framework in Frameworks */,
+				D48A3328185251DF009022DA /* QSInterface.framework in Frameworks */,
 				8D1AC9700486D14A00FE50C9 /* Cocoa.framework in Frameworks */,
+				D44C7F2F18A176E400F1767D /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +108,16 @@
 			children = (
 				D416002B1682445D00509469 /* QSEventTrigger.xib */,
 				8D1AC9730486D14A00FE50C9 /* Info.plist */,
+				D42C729F1899864D0056BC93 /* headphones.png */,
+				D42C72A3189987860056BC93 /* internal-speaker.png */,
+				D42C72A718998EBF0056BC93 /* ethernet-port.png */,
+				D42C72A91899A13A0056BC93 /* display.png */,
+				D42C72AA1899A13A0056BC93 /* system-shutdown.png */,
+				D42C72AB1899A13A0056BC93 /* system-sleep.png */,
+				D4CE0500189A0A510035DF36 /* optical.png */,
+				D4AAD86318B79B2800756714 /* power-ac.png */,
+				D4AAD86418B79B2800756714 /* power-battery.png */,
+				D4AAD86518B79B2800756714 /* power-ups.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -77,8 +133,10 @@
 		2E58F364FFB232C311CA0CBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D44124CD1680C56E00793732 /* QSFoundation.framework */,
+				D4AAD85F18B6B5C600756714 /* IOKit.framework */,
 				DD92D38A0106425D02CA0E72 /* Cocoa.framework */,
+				D48A3327185251DF009022DA /* QSInterface.framework */,
+				D44C7F2D18A176C300F1767D /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -90,6 +148,18 @@
 				E11E3A9707A3841700F55E58 /* QSBasicEventTriggers.m */,
 				E17CD95D07A33F2B006BAEA7 /* QSEventTriggerManager.h */,
 				E17CD95E07A33F2B006BAEA7 /* QSEventTriggerManager.m */,
+				D44C098F1891A2D1009F83AE /* QSObjectValueTransformerET.h */,
+				D44C09901891A2D1009F83AE /* QSObjectValueTransformerET.m */,
+				D4A04E1F189AACBA00F04D95 /* QSObjectDraggedTableView.h */,
+				D4A04E20189AACBA00F04D95 /* QSObjectDraggedTableView.m */,
+				D44C7F7818A29D8D00F1767D /* QSAudioOutputEvents.h */,
+				D44C7F7918A29D8D00F1767D /* QSAudioOutputEvents.m */,
+				D44C7F2A18A1766200F1767D /* Reachability.h */,
+				D44C7F2B18A1766200F1767D /* Reachability.m */,
+				D44C7F3018A1893900F1767D /* QSInternetReachabilityEvents.h */,
+				D44C7F3118A1893900F1767D /* QSInternetReachabilityEvents.m */,
+				D4AAD85C18B6B54600756714 /* QSPowerSourceEvents.h */,
+				D4AAD85D18B6B54600756714 /* QSPowerSourceEvents.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -135,8 +205,11 @@
 /* Begin PBXProject section */
 		0259C573FE90428111CA0C5A /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+			};
 			buildConfigurationList = 7F07AFDE085E433000E2AFC4 /* Build configuration list for PBXProject "QSEventTriggersElement" */;
-			compatibilityVersion = "Xcode 2.4";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -156,9 +229,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D42C72A01899864D0056BC93 /* headphones.png in Resources */,
+				D4AAD86718B79B2800756714 /* power-battery.png in Resources */,
+				D4AAD86618B79B2800756714 /* power-ac.png in Resources */,
+				D42C72AC1899A13A0056BC93 /* display.png in Resources */,
 				E17CDCF807A36941006BAEA7 /* QSEventTriggerManager.h in Resources */,
+				D42C72A4189987860056BC93 /* internal-speaker.png in Resources */,
+				D4CE0501189A0A510035DF36 /* optical.png in Resources */,
+				D42C72AD1899A13A0056BC93 /* system-shutdown.png in Resources */,
+				D42C72AE1899A13A0056BC93 /* system-sleep.png in Resources */,
 				E11E3A9807A3841700F55E58 /* QSBasicEventTriggers.h in Resources */,
 				D416002C1682445D00509469 /* QSEventTrigger.xib in Resources */,
+				D4AAD86818B79B2800756714 /* power-ups.png in Resources */,
+				D42C72A818998EBF0056BC93 /* ethernet-port.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,7 +270,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E17CD96007A33F2B006BAEA7 /* QSEventTriggerManager.m in Sources */,
+				D44C7F7A18A29D8D00F1767D /* QSAudioOutputEvents.m in Sources */,
+				D44C09911891A2D1009F83AE /* QSObjectValueTransformerET.m in Sources */,
+				D4A04E23189AACBA00F04D95 /* QSObjectDraggedTableView.m in Sources */,
 				E11E3A9907A3841700F55E58 /* QSBasicEventTriggers.m in Sources */,
+				D44C7F3218A1893900F1767D /* QSInternetReachabilityEvents.m in Sources */,
+				D44C7F2C18A1766200F1767D /* Reachability.m in Sources */,
+				D4AAD85E18B6B54600756714 /* QSPowerSourceEvents.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +292,6 @@
 					/tmp/QS/build/Release,
 				);
 				PRODUCT_NAME = "Event Triggers";
-				ZERO_LINK = YES;
 			};
 			name = Release;
 		};
@@ -211,6 +299,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D44124CA1680C4C600793732 /* Release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 			};
 			name = Release;
 		};
@@ -218,6 +307,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D44124C61680C4C600793732 /* Debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 			};
 			name = Debug;
 		};
@@ -230,7 +320,6 @@
 					/tmp/QS/build/Release,
 				);
 				PRODUCT_NAME = "Event Triggers";
-				ZERO_LINK = YES;
 			};
 			name = Debug;
 		};
