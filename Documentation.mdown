@@ -10,6 +10,22 @@ With this plug-in, Quicksilver can run actions automatically as things happen on
 
 (Some examples require other plug-ins.)
 
+## Quickstart
+
+In order to create an example event trigger for experimentation:
+
+  1. Open Quicksilver settings
+  1. Install you have the `Event Triggers` plugin installed
+  1. Go to the `Triggers` preference pane
+  1. Use the `+` button (bottom left) and select `Event`
+  1. In the pop-up interface, create the *action* you want to run
+      - For example, `Quicksilver is awesome!` ⇥ **Large Type**
+  1. Find your action in the list of triggers, e.g. `Show "Quicksilver is awesome!" in large type`
+  1. Use <kbd>⌘</kbd><kbd>I</kbd> (or the `i` icon bottom right) to open the sidebar
+  1. In the sidebar, choose an easy to trigger event such as `Switched to A/C Power` (assuming you're on a laptop)
+  1. Test it out: if on a laptop, unplug and replug your power cable and expect
+   to see a text popup from Quicksilver appear automatically
+
 ## Built-in Events ##
 
 You can assign triggers for the following events:
